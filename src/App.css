@@ -9,11 +9,14 @@
 }
 
 .App {
-  background-color: #264BFF;
+  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .System {
@@ -27,19 +30,19 @@
 }
 
 .System > * {
-  margin: 0rem 0rem 0rem .625rem;
+  margin: 1vmax;
 }
 
 .System-window {
   background-color: #FFF;
   display: flex;
   flex-direction: column;
-  padding: 0 .5rem .625rem;
+  padding: 0 1vmax 1vmax;
 }
 
 .System-window-maintain-aspect {
-  flex: 4;
-  padding-bottom: 60%;
+  flex: 4.44;
+  padding-bottom: 57.5%;
   position: relative;
 }
 
@@ -63,12 +66,14 @@
 .System-window-tab {
   background-color: #FFF;
   color: #000;
-  padding: .125rem .625rem .25rem .375rem;
-  margin-right: .375rem;
+  padding: .187vmax 1vmax .375vmax .57vmax;
+  margin-right: .57vmax;
   text-align: left;
 }
 
-.System-window-tab.selected, .System-window-tab:hover {
+.System-window-tab.selected, 
+.System-window-tab:hover,
+.System-window-tab:active {
   background-color: #000;
   color: #FFF;
 }
@@ -81,15 +86,59 @@
 }
 
 .System-window-inner-sort {
-  padding-top: 5vmax;
-  padding-left: 3vmax;
+  padding-top: 5.25vmax;
+  padding-left: 4.25vmax;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.System-window-inner-sort-left {
+  width: 47%;
+}
+
+.System-window-inner-sort-title {
+  margin-bottom: 6.75vmax;
+}
+
+.System-window-inner-sort-name-options {
+  padding-left: 3vmax;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.System-window-inner-sort-name-option {
+  flex: 0 50%;
+  padding-bottom: 4.5vmax;
+  color: #808080;
+}
+
+.System-window-inner-sort-name-option.selected, 
+.System-window-inner-sort-name-option:hover,
+.System-window-inner-sort-name-option:active {
+  color: #FFF;
+}
+
+.System-window-inner-decoration-left {
+  position: absolute;
+  background-color: black;
+  width: .25vmax;
+  height: 52.25vmax;
+  left: .5vmax;
+  bottom: 1vmax;
+}
+
+.System-window-inner-decoration-right {
+  position: absolute;
+  background-color: black;
+  width: .25vmax;
+  height: 52.25vmax;
+  right: .5vmax;
+  bottom: 1vmax;
+}
+
+.System-window-inner-decoration-bottom {
+  position: absolute;
+  background-color: black;
+  width: 76.35vmax;
+  height: .25vmax;
+  right: 1vmax;
+  bottom: .5vmax;
 }

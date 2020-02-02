@@ -23,9 +23,45 @@ function App() {
               </div>
               <div className="System-window-inner">
                 <div className="System-window-inner-sort">
-                  Edit src/App.js and save to reload.
+                  <div className="System-window-inner-sort-left">
+                    <div className="System-window-inner-sort-title">
+                      Search by: Name
+                    </div>
+                    <div className="System-window-inner-sort-name-options">
+                      <div className="System-window-inner-sort-name-option selected">
+                        B
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        C
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        F
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        G
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        M
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        P
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        S
+                      </div>
+                      <div className="System-window-inner-sort-name-option">
+                        Z
+                      </div>
+                    </div>
+                  </div>
+                  <div className="System-window-inner-sort-right">
+
+                  </div>
                 </div>
               </div>
+              <div className="System-window-inner-decoration-left"></div>
+              <div className="System-window-inner-decoration-right"></div>
+              <div className="System-window-inner-decoration-bottom"></div>
             </div>
           </div>
           <div className="System-sidebar">

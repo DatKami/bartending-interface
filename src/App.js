@@ -1,24 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="System">
+          <div className="System-window-maintain-aspect">
+            <div className="System-window">
+              <div className="System-window-tab-bar">
+                <div className="System-window-tab selected">
+                  By Name
+                </div>
+                <div className="System-window-tab">
+                  By Flavor
+                </div>
+                <div className="System-window-tab">
+                  By Type
+                </div>
+                <div className="System-window-tab">
+                  Bottled Drinks
+                </div>
+              </div>
+              <div className="System-window-inner">
+                <div className="System-window-inner-sort">
+                  Edit src/App.js and save to reload.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="System-sidebar">
+            <div className="System-sidebar-calicomp">
+              <p>
+                bottom text
+              </p>
+            </div>
+          </div>
+        </div>
     </div>
   );
 }

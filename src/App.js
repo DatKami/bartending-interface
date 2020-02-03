@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
@@ -59,9 +59,9 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="System-window-inner-decoration-left"></div>
-              <div className="System-window-inner-decoration-right"></div>
-              <div className="System-window-inner-decoration-bottom"></div>
+              <div className="System-window-inner-decoration left"></div>
+              <div className="System-window-inner-decoration right"></div>
+              <div className="System-window-inner-decoration bottom"></div>
             </div>
           </div>
           <div className="System-sidebar">

@@ -8,12 +8,36 @@
 	src: url('va-11-hall-a-6px-webfont.woff') format('woff');
 }
 
+/**
+https://github.com/sass/sass/issues/2378#issuecomment-433868712
+*/
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers})
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers})
+}
+
+body {
+  overflow-x: hidden; 
+  overflow-y: hidden;
+}
+
+$aspect-ratio: 820/484;
+
+html {
+  font-size: min(3.30579vw/$aspect-ratio, 3.30579vh);
+}
+
 .App {
   background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  min-width: 100vh;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
@@ -23,26 +47,28 @@
   text-align: center;
   font-family: 'CyberpunkWaifus';
   background-color: #264BFF;
-  font-size: 3.125vmax;
+  font-size: (25rem/16);
   display: flex;
   flex-direction: row;
   color: white;
+  width: 51.25rem;
+  height: 30.25rem;
 }
 
 .System > * {
-  margin: 1vmax;
+  margin: .5rem;
 }
 
 .System-window {
   background-color: #FFF;
   display: flex;
   flex-direction: column;
-  padding: 0 1vmax 1vmax;
+  padding: 0 .5rem .5rem;
 }
 
 .System-window-maintain-aspect {
-  flex: 4.44;
-  padding-bottom: 57.5%;
+  width: 40.5rem;
+  height: 29.25rem;
   position: relative;
 }
 
@@ -60,24 +86,21 @@
   display: flex;
   flex-direction: row;
   font-family: 'Va-11 Hall-A 6px';
-  font-size: 2.5vmax;
+  font-size: 1.25rem;
 }
 
 .System-window-tab {
   background-color: #FFF;
   color: #000;
-  padding: .187vmax 1vmax .375vmax .57vmax;
-  margin-right: .57vmax;
+  padding: 0 .5rem (3rem/16) .25rem;
+  margin-right: .25rem;
   text-align: left;
-}
 
-.System-window-tab.selected, 
-.System-window-tab:hover,
-.System-window-tab:active {
-  background-color: #000;
-  color: #FFF;
+  &.selected, &:hover, &:active {
+    background-color: #000;
+    color: #FFF;
+  }
 }
-
 
 .System-window-inner {
   background-color: #000;
@@ -86,8 +109,8 @@
 }
 
 .System-window-inner-sort {
-  padding-top: 5.25vmax;
-  padding-left: 4.25vmax;
+  padding-top: (42rem/16);
+  padding-left: 2.125rem;
 }
 
 .System-window-inner-sort-left {
@@ -95,50 +118,47 @@
 }
 
 .System-window-inner-sort-title {
-  margin-bottom: 6.75vmax;
+  margin-bottom: (54rem/16);
 }
 
 .System-window-inner-sort-name-options {
-  padding-left: 3vmax;
+  padding-left: 1.5rem;
   display: flex;
   flex-wrap: wrap;
 }
 
 .System-window-inner-sort-name-option {
   flex: 0 50%;
-  padding-bottom: 4.5vmax;
+  padding-bottom: 2.25rem;
   color: #808080;
+
+  &.selected, &:hover, &:active {
+    color: #FFF;
+  }
 }
 
-.System-window-inner-sort-name-option.selected, 
-.System-window-inner-sort-name-option:hover,
-.System-window-inner-sort-name-option:active {
-  color: #FFF;
-}
-
-.System-window-inner-decoration-left {
+.System-window-inner-decoration {
   position: absolute;
   background-color: black;
-  width: .25vmax;
-  height: 52.25vmax;
-  left: .5vmax;
-  bottom: 1vmax;
-}
 
-.System-window-inner-decoration-right {
-  position: absolute;
-  background-color: black;
-  width: .25vmax;
-  height: 52.25vmax;
-  right: .5vmax;
-  bottom: 1vmax;
-}
+  &.left, &.right {
+    width: .125rem;
+    height: 26.625rem;
+    bottom: .5rem;
+  }
 
-.System-window-inner-decoration-bottom {
-  position: absolute;
-  background-color: black;
-  width: 76.35vmax;
-  height: .25vmax;
-  right: 1vmax;
-  bottom: .5vmax;
+  &.left {
+    left: .25rem;
+  }
+
+  &.right {
+    right: .25rem;
+  }
+
+  &.bottom {
+    height: .125rem;
+    width: (632rem/16);
+    bottom: .25rem;
+    right: .5rem;
+  }
 }

@@ -125,17 +125,19 @@ html {
   padding-left: 1.5rem;
   display: flex;
   flex-wrap: wrap;
-}
 
-.System-window-inner-sort-name-option {
-  flex: 0 50%;
-  padding-bottom: 2.25rem;
-  color: #808080;
-
-  &.selected, &:hover, &:active {
-    color: #FFF;
+  .option {
+    flex: 0 50%;
+    padding-bottom: 2.25rem;
+    color: #808080;
+  
+    &.selected, &:hover, &:active {
+      color: #FFF;
+    }
   }
 }
+
+
 
 .System-window-inner-decoration {
   position: absolute;

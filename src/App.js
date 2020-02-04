@@ -1,6 +1,127 @@
 import React from 'react';
 import './App.scss';
 
+const options = [
+  {
+    name: 'Bad Touch',
+    index: 1,
+    ingredients: {
+      adelhyde: 0,
+      bronsonExtract: 2,
+      powderedDelta: 2,
+      flanergide: 2,
+      karmotrine: 4,
+      rocks: true,
+      aged: false,
+      blended: false
+    }
+  }
+];
+
+const byName = {
+  name: 'name',
+  className: 'name',
+  perRow: 2,
+  isBottledDrinks: false,
+  options: [
+    {
+      name: 'B',
+      options: [0]
+    },
+    {
+      name: 'C',
+      options: []
+    },
+    {
+      name: 'F',
+      options: []
+    },
+    {
+      name: 'G',
+      options: []
+    },
+    {
+      name: 'M',
+      options: []
+    },
+    {
+      name: 'P',
+      options: []
+    },
+    {
+      name: 'S',
+      options: []
+    },
+    {
+      name: 'Z',
+      options: []
+    },
+  ]
+};
+
+class OptionsGroup extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  onClick = () => {
+    const { index, onClick } = this.props;
+    onClick(index);
+  }
+
+  render() {
+    return (
+      <div className={"option " + (this.props.index === this.props.currentIndex ? 'selected' : '')} onClick={this.onClick}>
+        {this.props.name}
+      </div>
+    );
+  }
+}
+
+class TabWindow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeOptionsGroup: null
+    };
+  }
+  // type, header, optionsType, optionGroups, options
+
+  setActiveOptionsGroup = (i) => {
+    this.setState({
+      activeOptionsGroup: i
+    });
+  }
+
+  render() {
+    return (
+      <div className="System-window-inner-sort">
+        <div className="System-window-inner-sort-left">
+          <div className="System-window-inner-sort-title">
+            Search by: {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}
+          </div>
+          <div className={`System-window-inner-sort-${this.props.className}-options`}>
+            {this.props.options.map((option, i) => {
+              return (
+                <OptionsGroup 
+                  {...option} 
+                  onClick={this.setActiveOptionsGroup} 
+                  index={i}
+                  currentIndex={this.state.activeOptionsGroup}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div className="System-window-inner-sort-right">
+  
+        </div>
+      </div>
+    );
+  }
+}
+
 function App() {
   return (
     <div className="App">
@@ -22,42 +143,7 @@ function App() {
                 </div>
               </div>
               <div className="System-window-inner">
-                <div className="System-window-inner-sort">
-                  <div className="System-window-inner-sort-left">
-                    <div className="System-window-inner-sort-title">
-                      Search by: Name
-                    </div>
-                    <div className="System-window-inner-sort-name-options">
-                      <div className="System-window-inner-sort-name-option selected">
-                        B
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        C
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        F
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        G
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        M
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        P
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        S
-                      </div>
-                      <div className="System-window-inner-sort-name-option">
-                        Z
-                      </div>
-                    </div>
-                  </div>
-                  <div className="System-window-inner-sort-right">
-
-                  </div>
-                </div>
+                <TabWindow {...byName}></TabWindow>
               </div>
               <div className="System-window-inner-decoration left"></div>
               <div className="System-window-inner-decoration right"></div>

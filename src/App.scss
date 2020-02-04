@@ -41,126 +41,126 @@ html {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
-}
 
-.System {
-  text-align: center;
-  font-family: 'CyberpunkWaifus';
-  background-color: #264BFF;
-  font-size: (25rem/16);
-  display: flex;
-  flex-direction: row;
-  color: white;
-  width: 51.25rem;
-  height: 30.25rem;
-}
-
-.System > * {
-  margin: .5rem;
-}
-
-.System-window {
-  background-color: #FFF;
-  display: flex;
-  flex-direction: column;
-  padding: 0 .5rem .5rem;
-}
-
-.System-window-maintain-aspect {
-  width: 40.5rem;
-  height: 29.25rem;
-  position: relative;
-}
-
-.System-window-maintain-aspect > div {
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-}
-
-.System-sidebar {
-  flex: 1;
-}
-
-.System-window-tab-bar {
-  background-color: #FFF;
-  display: flex;
-  flex-direction: row;
-  font-family: 'Va-11 Hall-A 6px';
-  font-size: 1.25rem;
-}
-
-.System-window-tab {
-  background-color: #FFF;
-  color: #000;
-  padding: 0 .5rem (3rem/16) .25rem;
-  margin-right: .25rem;
-  text-align: left;
-
-  &.selected, &:hover, &:active {
-    background-color: #000;
-    color: #FFF;
-  }
-}
-
-.System-window-inner {
-  background-color: #000;
-  flex-grow: 1;
-  text-align: left;
-}
-
-.System-window-inner-sort {
-  padding-top: (42rem/16);
-  padding-left: 2.125rem;
-}
-
-.System-window-inner-sort-left {
-  width: 47%;
-}
-
-.System-window-inner-sort-title {
-  margin-bottom: (54rem/16);
-}
-
-.System-window-inner-sort-name-options {
-  padding-left: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-
-  .option {
-    flex: 0 50%;
-    padding-bottom: 2.25rem;
-    color: #808080;
+  .System {
+    text-align: center;
+    font-family: 'CyberpunkWaifus';
+    background-color: #264BFF;
+    font-size: (25rem/16);
+    display: flex;
+    flex-direction: row;
+    color: white;
+    width: 51.25rem;
+    height: 30.25rem;
   
-    &.selected, &:hover, &:active {
-      color: #FFF;
+    & > * {
+      margin: .5rem;
     }
-  }
+    
+    .System-window-maintain-aspect {
+      width: 40.5rem;
+      height: 29.25rem;
+      position: relative;
+    
+      & > div {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+      }
+    
+      .System-window {
+        background-color: #FFF;
+        display: flex;
+        flex-direction: column;
+        padding: 0 .5rem .5rem;
+      
+        .System-window-tab-bar {
+          background-color: #FFF;
+          display: flex;
+          flex-direction: row;
+          font-family: 'Va-11 Hall-A 6px';
+          font-size: 1.25rem;
+        
+          .System-window-tab {
+            background-color: #FFF;
+            color: #000;
+            padding: 0 .5rem (3rem/16) .25rem;
+            margin-right: .25rem;
+            text-align: left;
+          
+            &.selected, &:hover, &:active {
+              background-color: #000;
+              color: #FFF;
+            }
+          }
+        }
+    
+        .System-window-inner {
+          background-color: #000;
+          flex-grow: 1;
+          text-align: left;
+    
+          .System-window-inner-sort {
+            padding-top: (42rem/16);
+            padding-left: 2.125rem;
+    
+            .System-window-inner-sort-left {
+              width: 47%;
+    
+              .System-window-inner-sort-title {
+                margin-bottom: (54rem/16);
+              }
+    
+              .sort-name {
+                padding-left: 1.5rem;
+                display: flex;
+                flex-wrap: wrap;
+              
+                .option {
+                  flex: 0 50%;
+                  padding-bottom: 2.25rem;
+                  color: #808080;
+                
+                  &.selected, &:hover, &:active {
+                    color: #FFF;
+                  }
+                }
+              }          
+            }
+          }      
+        }
+    
+        .System-window-inner-decoration {
+          position: absolute;
+          background-color: black;
+        
+          &.left, &.right {
+            width: .125rem;
+            height: 26.625rem;
+            bottom: .5rem;
+          }
+        
+          &.left {
+            left: .25rem;
+          }
+        
+          &.right {
+            right: .25rem;
+          }
+        
+          &.bottom {
+            height: .125rem;
+            width: (632rem/16);
+            bottom: .25rem;
+            right: .5rem;
+          }
+        }
+      }
+    
+      .System-sidebar {
+        flex: 1;
+      }
+    }
+  }  
 }
 
 
-
-.System-window-inner-decoration {
-  position: absolute;
-  background-color: black;
-
-  &.left, &.right {
-    width: .125rem;
-    height: 26.625rem;
-    bottom: .5rem;
-  }
-
-  &.left {
-    left: .25rem;
-  }
-
-  &.right {
-    right: .25rem;
-  }
-
-  &.bottom {
-    height: .125rem;
-    width: (632rem/16);
-    bottom: .25rem;
-    right: .5rem;
-  }
-}

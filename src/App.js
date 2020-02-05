@@ -3,6 +3,7 @@ import './App.scss';
 import hoverSFX from './assets/hover.wav';
 import tabSFX from './assets/tab.wav';
 import Sound from 'react-sound';
+import UIfx from 'uifx';
 
 const options = [
   {
@@ -62,6 +63,22 @@ const byName = {
   ]
 };
 
+const tabSound = new UIfx(
+  tabSFX,
+  {
+    volume: .5,
+    throttleMs: 100
+  }
+)
+
+const hoverSound = new UIfx(
+  hoverSFX,
+  {
+    volume: .5,
+    throttleMs: 100
+  }
+)
+
 class OptionsGroup extends React.Component {
   constructor(props) {
     super(props);
@@ -81,25 +98,16 @@ class OptionsGroup extends React.Component {
   onClick = () => {
     const { index, onClick } = this.props;
     onClick(index);
-    this.playTabSound();
-  }
-
-  playTabSound = () => {
-    this.setState({
-      tab: {
-        playStatus: Sound.status.PLAYING,
-        playFromPosition: 0
-      }
-    })
   }
 
   playHoverSound = () => {
-    this.setState({
-      hover: {
-        playStatus: Sound.status.PLAYING,
-        playFromPosition: 0
-      }
-    })
+    // this.setState({
+    //   hover: {
+    //     playStatus: Sound.status.PLAYING,
+    //     playFromPosition: 0
+    //   }
+    // })
+    hoverSound.play();
   }
 
   stopTabSound = () => {
@@ -158,9 +166,12 @@ class TabWindow extends React.Component {
   // type, header, optionsType, optionGroups, options
 
   setActiveOptionsGroup = (i) => {
-    this.setState({
-      activeOptionsGroup: i
-    });
+    if (i !== this.state.activeOptionsGroup) {
+      this.setState({
+        activeOptionsGroup: i
+      });
+      tabSound.play();
+    }
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import hoverSFX from './assets/hover.wav';
+import tabSFX from './assets/tab.wav';
 import Sound from 'react-sound';
 
 const options = [
@@ -64,44 +65,32 @@ const byName = {
 class OptionsGroup extends React.Component {
   constructor(props) {
     super(props);
-  }
-  
-  onClick = () => {
-    const { index, onClick } = this.props;
-    onClick(index);
-  }
-
-  render() {
-    return (
-      <div 
-        className={"option " + (this.props.index === this.props.currentIndex ? 'selected' : '')} 
-        onClick={this.onClick}
-        onMouseEnter={this.props.onMouseEnter}
-      >
-        {this.props.name}
-      </div>
-    );
-  }
-}
-
-class TabWindow extends React.Component {
-  constructor(props) {
-    super(props);
 
     this.state = {
-      activeOptionsGroup: null,
       hover: {
+        playStatus: Sound.status.STOPPED,
+        playFromPosition: 0
+      },
+      tab: {
         playStatus: Sound.status.STOPPED,
         playFromPosition: 0
       }
     };
   }
-  // type, header, optionsType, optionGroups, options
+  
+  onClick = () => {
+    const { index, onClick } = this.props;
+    onClick(index);
+    this.playTabSound();
+  }
 
-  setActiveOptionsGroup = (i) => {
+  playTabSound = () => {
     this.setState({
-      activeOptionsGroup: i
-    });
+      tab: {
+        playStatus: Sound.status.PLAYING,
+        playFromPosition: 0
+      }
+    })
   }
 
   playHoverSound = () => {
@@ -113,15 +102,70 @@ class TabWindow extends React.Component {
     })
   }
 
+  stopTabSound = () => {
+    this.setState({
+      tab: {
+        playStatus: Sound.status.STOPPED
+      }
+    })
+  }
+
+  stopHoverSound = () => {
+    this.setState({
+      hover: {
+        playStatus: Sound.status.STOPPED
+      }
+    })
+  }
+
   render() {
     return (
-      <div className="System-window-inner-sort">
+      <div 
+        className={"option " + (this.props.index === this.props.currentIndex ? 'selected' : '')} 
+        onClick={this.onClick}
+        onMouseEnter={this.playHoverSound.bind(this)}
+      >
         <Sound 
           url={hoverSFX}
           playStatus={this.state.hover.playStatus}
           playFromPosition={this.state.hover.playFromPosition}
           volume={50}
+          autoLoad={true}
+          onFinishedPlaying={this.stopHoverSound.bind(this)}
         />
+        <Sound 
+          url={tabSFX}
+          playStatus={this.state.tab.playStatus}
+          playFromPosition={this.state.tab.playFromPosition}
+          volume={50}
+          autoLoad={true}
+          onFinishedPlaying={this.stopTabSound.bind(this)}
+        />
+        {this.props.name}
+      </div>
+    );
+  }
+}
+
+class TabWindow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeOptionsGroup: null
+    };
+  }
+  // type, header, optionsType, optionGroups, options
+
+  setActiveOptionsGroup = (i) => {
+    this.setState({
+      activeOptionsGroup: i
+    });
+  }
+
+  render() {
+    return (
+      <div className="System-window-inner-sort">
         <div className="System-window-inner-sort-left">
           <div className="System-window-inner-sort-title">
             Search by: {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}
@@ -132,7 +176,6 @@ class TabWindow extends React.Component {
                 <OptionsGroup 
                   {...option} 
                   onClick={this.setActiveOptionsGroup} 
-                  onMouseEnter={this.playHoverSound}
                   index={i}
                   currentIndex={this.state.activeOptionsGroup}
                 />

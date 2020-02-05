@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import hoverSFX from './assets/hover.wav';
-import tabSFX from './assets/tab.wav';
+import hoverSFX from './assets/hover.mp3';
+import tabSFX from './assets/tab.mp3';
 import Sound from 'react-sound';
 import UIfx from 'uifx';
 import {isMobile} from 'react-device-detect';

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import Sound from 'react-sound';
 
 const options = [
   {
@@ -71,7 +72,11 @@ class OptionsGroup extends React.Component {
 
   render() {
     return (
-      <div className={"option " + (this.props.index === this.props.currentIndex ? 'selected' : '')} onClick={this.onClick}>
+      <div 
+        className={"option " + (this.props.index === this.props.currentIndex ? 'selected' : '')} 
+        onClick={this.onClick}
+        onMouseEnter={this.props.onMouseEnter}
+      >
         {this.props.name}
       </div>
     );
@@ -83,7 +88,11 @@ class TabWindow extends React.Component {
     super(props);
 
     this.state = {
-      activeOptionsGroup: null
+      activeOptionsGroup: null,
+      hover: {
+        playStatus: Sound.status.STOPPED,
+        playFromPosition: 0
+      }
     };
   }
   // type, header, optionsType, optionGroups, options
@@ -94,9 +103,23 @@ class TabWindow extends React.Component {
     });
   }
 
+  playHoverSound = () => {
+    this.setState({
+      hover: {
+        playStatus: Sound.status.PLAYING,
+        playFromPosition: 0
+      }
+    })
+  }
+
   render() {
     return (
       <div className="System-window-inner-sort">
+        <Sound 
+          url="./hover.wav"
+          playStatus={this.state.hover.playStatus}
+          playFromPosition={this.state.hover.playFromPosition}
+        />
         <div className="System-window-inner-sort-left">
           <div className="System-window-inner-sort-title">
             Search by: {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}
@@ -107,6 +130,7 @@ class TabWindow extends React.Component {
                 <OptionsGroup 
                   {...option} 
                   onClick={this.setActiveOptionsGroup} 
+                  onMouseEnter={this.playHoverSound}
                   index={i}
                   currentIndex={this.state.activeOptionsGroup}
                 />

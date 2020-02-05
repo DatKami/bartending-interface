@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import hoverSFX from './assets/hover.wav';
 import Sound from 'react-sound';
 
 const options = [
@@ -116,9 +117,10 @@ class TabWindow extends React.Component {
     return (
       <div className="System-window-inner-sort">
         <Sound 
-          url="./hover.wav"
+          url={hoverSFX}
           playStatus={this.state.hover.playStatus}
           playFromPosition={this.state.hover.playFromPosition}
+          volume={50}
         />
         <div className="System-window-inner-sort-left">
           <div className="System-window-inner-sort-title">

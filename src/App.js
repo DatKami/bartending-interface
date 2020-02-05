@@ -4,6 +4,7 @@ import hoverSFX from './assets/hover.wav';
 import tabSFX from './assets/tab.wav';
 import Sound from 'react-sound';
 import UIfx from 'uifx';
+import {isMobile} from 'react-device-detect';
 
 const options = [
   {
@@ -107,7 +108,7 @@ class OptionsGroup extends React.Component {
     //     playFromPosition: 0
     //   }
     // })
-    hoverSound.play();
+    !isMobile && hoverSound.play();
   }
 
   stopTabSound = () => {
@@ -129,7 +130,7 @@ class OptionsGroup extends React.Component {
   render() {
     return (
       <div 
-        className={"option " + (this.props.index === this.props.currentIndex ? 'selected' : '')} 
+        className={'option ' + (this.props.index === this.props.currentIndex ? 'selected' : '')} 
         onClick={this.onClick}
         onMouseEnter={this.playHoverSound.bind(this)}
       >
@@ -141,14 +142,14 @@ class OptionsGroup extends React.Component {
           autoLoad={true}
           onFinishedPlaying={this.stopHoverSound.bind(this)}
         />
-        <Sound 
+        {/* <Sound 
           url={tabSFX}
           playStatus={this.state.tab.playStatus}
           playFromPosition={this.state.tab.playFromPosition}
           volume={50}
           autoLoad={true}
           onFinishedPlaying={this.stopTabSound.bind(this)}
-        />
+        /> */}
         {this.props.name}
       </div>
     );

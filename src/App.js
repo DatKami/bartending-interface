@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import hoverSFX from './assets/hover.mp3';
 import tabSFX from './assets/tab.mp3';
+import calicomp from './assets/calicomp.png';
 import Sound from 'react-sound';
 import UIfx from 'uifx';
 import {isMobile} from 'react-device-detect';
@@ -233,9 +234,7 @@ function App() {
         </div>
         <div className="System-sidebar">
           <div className="System-sidebar-calicomp">
-            <p>
-              bottom text
-            </p>
+            <img src={calicomp} alt={''}/>
           </div>
         </div>
       </div>

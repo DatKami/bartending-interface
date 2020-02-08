@@ -19,6 +19,9 @@ const options = [
       aged: false,
       blended: false
     },
+    style: {
+      paddingRight: '2.5rem'
+    },
     flavorText: 'We\'re nothing but mammals after all.',
     flavorTypes: ['Sour', 'Classy', 'Vintage']
   },  

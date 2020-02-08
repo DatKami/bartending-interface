@@ -153,13 +153,27 @@ html {
             }
             .drink-description {
               margin-top: (30rem/16);
+              padding-right: 2rem;
               font-family: 'Va-11 Hall-A 6px';
+              line-height: 1.4;
               font-size: 1.251rem;
+              .nowrap {
+                white-space: nowrap;
+              }
               .adelhyde {
                 color: #F21637;
               }
               .bronsonExtract {
                 color: #FFD230;
+              }
+              .powderedDelta {
+                color: #87ACF3;
+              }
+              .flanergide {
+                color: #A6D26D;
+              }
+              .karmotrine {
+                color: #47D4D4
               }
             }
           }

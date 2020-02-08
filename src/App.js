@@ -14,6 +14,7 @@ const options = [
       powderedDelta: 2,
       flanergide: 2,
       karmotrine: 4,
+      optionalKarmotrine: false,
       rocks: true,
       aged: false,
       blended: false
@@ -31,6 +32,7 @@ const options = [
       powderedDelta: 1,
       flanergide: 2,
       karmotrine: 4,
+      optionalKarmotrine: false,
       rocks: false,
       aged: false,
       blended: false
@@ -48,6 +50,7 @@ const options = [
       powderedDelta: 3,
       flanergide: 3,
       karmotrine: 0,
+      optionalKarmotrine: false,
       rocks: false,
       aged: false,
       blended: true

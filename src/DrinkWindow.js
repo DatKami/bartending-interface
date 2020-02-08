@@ -36,13 +36,13 @@ class DrinkWindow extends React.Component {
         if (rocks) {
             if (aged) {
                 if (blended) {
-
+                    addonString = 'All aged, on the rocks, and blended' // doesn't exist!
                 } else {
-
+                    addonString = 'All aged, on the rocks, and mixed'
                 }
             } else {
                 if (blended) {
-
+                    addonString = name === 'Sunshine Cloud' ? 'On the rocks and blended' : 'All on the rocks and blended'
                 } else {
                     addonString = 'All on the rocks and mixed'
                 }
@@ -50,13 +50,13 @@ class DrinkWindow extends React.Component {
         } else {
             if (aged) {
                 if (blended) {
-
+                    addonString = 'All aged and blended' // doesn't exist!
                 } else {
-                    
+                    addonString = 'All aged and mixed'
                 }
             } else {
                 if (blended) {
-
+                    addonString = 'All blended'
                 } else {
                     addonString = 'All mixed'
                 }

@@ -77,6 +77,9 @@ class DrinkWindow extends React.Component {
                         <br/><br/>
                         {flavorsString}
                 </div>
+                <div class="navigation">
+                    
+                </div>
             </div>
         );
     }

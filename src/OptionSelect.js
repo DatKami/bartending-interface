@@ -13,7 +13,8 @@ const hoverSound = new UIfx(
 
 class OptionSelect extends React.Component {
     onClick = () => {
-      const { index, onClick } = this.props;
+      const { index, onClick, clearActiveTab } = this.props;
+      clearActiveTab();
       onClick(index);
     }
   

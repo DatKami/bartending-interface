@@ -2,6 +2,17 @@ import React from 'react';
 import './App.scss';
 import TabWindow from './TabWindow';
 import calicomp from './assets/calicomp.png';
+import UIfx from 'uifx';
+import tabSFX from './assets/tab.mp3';
+
+
+const tabSound = new UIfx(
+  tabSFX,
+  {
+      volume: .5,
+      throttleMs: 100
+  }
+)
 
 const options = [
   {
@@ -104,13 +115,64 @@ const byName = {
   ]
 };
 
+const tabs = [
+  {
+    title: 'By Name'
+  },
+  {
+    title: 'By Flavor'
+  },
+  {
+    title: 'By Type'
+  },
+  {
+    title: 'Bottled Drinks'
+  }
+]
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeTab: 0
+      activeTab: 0,
+      activeOptionsGroup: 0,
+      activeOption: undefined
     };
+  }
+
+  setActiveOptionsGroup = (i) => {
+      if (i !== this.state.activeOptionsGroup) {
+          this.setState({
+              activeOptionsGroup: i
+          });
+          tabSound.play();
+      }
+  }
+
+  setActiveOption = (i) => {
+      if (i !== this.state.activeOption) {
+          this.setState({
+              activeOption: i
+          });
+          tabSound.play();
+      }
+  }
+
+  setActiveTab = (i) => {
+      if (i !== this.state.activeTab) {
+          this.setState({
+              activeTab: i
+          });
+          tabSound.play();
+      }
+  }
+
+  clearActiveOption = () => {
+      this.setState({
+          activeOption: undefined
+      });
+      tabSound.play();
   }
 
   clearActiveTab() {
@@ -126,24 +188,23 @@ class App extends React.Component {
           <div className="System-window-maintain-aspect">
             <div className="System-window">
               <div className="System-window-tab-bar">
-                <div className="System-window-tab selected">
-                  By Name
-                </div>
-                <div className="System-window-tab">
-                  By Flavor
-                </div>
-                <div className="System-window-tab">
-                  By Type
-                </div>
-                <div className="System-window-tab">
-                  Bottled Drinks
-                </div>
+                {tabs.map((tab, index) => { return (
+                  <div className={"System-window-tab " + (this.state.activeTab === index ? 'selected' : '')}>
+                    {tab.title}
+                  </div>  
+                )})
+                }
               </div>
               <div className="System-window-inner">
                 <TabWindow 
                   {...byName} 
                   allDrinks={options} 
-                  clearActiveTab={this.clearActiveTab}
+                  activeOption={this.state.activeOption}
+                  activeOptionsGroup={this.state.activeOptionsGroup}
+                  setActiveOption={this.setActiveOption}
+                  setActiveOptionsGroup={this.setActiveOptionsGroup}
+                  clearActiveTab={this.clearActiveTab.bind(this)}
+                  clearActiveOption={this.clearActiveOption.bind(this)}
                 />
               </div>
               <div className="System-window-inner-decoration left"></div>

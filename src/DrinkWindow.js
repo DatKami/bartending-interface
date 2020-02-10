@@ -1,5 +1,6 @@
 import React from 'react';
 import arrow from './assets/arrow.png';
+import {titleCase} from './util';
 
 class DrinkWindow extends React.Component {
     render() {
@@ -35,35 +36,53 @@ class DrinkWindow extends React.Component {
             }),
             addonString;
 
-        if (rocks) {
-            if (aged) {
-                if (blended) {
-                    addonString = 'All aged, on the rocks, and blended' // doesn't exist!
-                } else {
-                    addonString = 'All aged, on the rocks, and mixed'
-                }
-            } else {
-                if (blended) {
-                    addonString = name === 'Sunshine Cloud' ? 'On the rocks and blended' : 'All on the rocks and blended'
-                } else {
-                    addonString = 'All on the rocks and mixed'
-                }
-            }
-        } else {
-            if (aged) {
-                if (blended) {
-                    addonString = 'All aged and blended' // doesn't exist!
-                } else {
-                    addonString = 'All aged and mixed'
-                }
-            } else {
-                if (blended) {
-                    addonString = 'All blended'
-                } else {
-                    addonString = 'All mixed'
-                }
-            }
-        }
+        let outcomes = [];
+        aged && outcomes.push('aged');
+        rocks && outcomes.push('on the rocks');
+        outcomes.push((outcomes.length ? 'and ' : '') + (blended ? 'blended' : 'mixed'));
+        
+        addonString = name === 'Sunshine Cloud' ? '' : 'all ';
+        addonString += outcomes.join(outcomes.length > 2 ? ', ' : ' ');
+        addonString = titleCase(addonString);
+
+        // outcomes.forEach((outcome, index, outcomes) => {
+        //     addonString += outcome;
+        //     if (outcomes.length === 3 && index < 2) {
+        //         addonString += ', '
+        //     }
+        // });
+
+        // if (rocks) {
+        //     if (aged) {
+        //         if (blended) {
+        //             addonString = 'All aged, on the rocks, and blended' // doesn't exist!
+        //         } else {
+        //             addonString = 'All aged, on the rocks, and mixed'
+        //         }
+        //     } else {
+        //         if (blended) {
+        //             addonString = name === 'Sunshine Cloud' ? 'On the rocks and blended' : 'All on the rocks and blended'
+        //         } else {
+        //             addonString = 'All on the rocks and mixed'
+        //         }
+        //     }
+        // } else {
+        //     if (aged) {
+        //         if (blended) {
+        //             addonString = 'All aged and blended' // doesn't exist!
+        //         } else {
+        //             addonString = 'All aged and mixed'
+        //         }
+        //     } else {
+        //         if (blended) {
+        //             addonString = 'All blended'
+        //         } else {
+        //             addonString = 'All mixed'
+        //         }
+        //     }
+        // }
+
+
 
         return (
             <div className="drink">

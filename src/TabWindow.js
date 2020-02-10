@@ -2,7 +2,7 @@ import React from 'react';
 import OptionsGroup from './OptionsGroup';
 import OptionSelect from './OptionSelect';
 import DrinkWindow from './DrinkWindow';
-
+import {titleCase} from './util';
 
 class TabWindow extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class TabWindow extends React.Component {
                 <div className="System-window-inner-sort">
                     <div className="System-window-inner-sort-left">
                         <div className="System-window-inner-sort-title">
-                        Search by: {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}
+                        Search by: {titleCase(this.props.name)}
                         </div>
                         <div className={this.props.className}>
                             {this.props.options.map((option, i) => {

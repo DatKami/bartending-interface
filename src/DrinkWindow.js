@@ -1,9 +1,11 @@
 import React from 'react';
+import arrow from './assets/arrow.png';
 
 class DrinkWindow extends React.Component {
     render() {
-        const {name, ingredients, style, cost, flavorText, flavorTypes} = this.props.drink;
+        const {name, index, ingredients, style, cost, flavorText, flavorTypes} = this.props.drink;
         const {adelhyde, bronsonExtract, powderedDelta, flanergide, karmotrine, optionalKarmotrine, rocks, aged, blended} = ingredients;
+        const {totalDrinks} = this.props;
         let ingredientList = [
                 {amount: adelhyde, name: 'Adelhyde', className: 'adelhyde'},
                 {amount: bronsonExtract, name: 'Bronson Extract', className: 'bronsonExtract'},
@@ -64,7 +66,7 @@ class DrinkWindow extends React.Component {
         }
 
         return (
-            <div className="drink" onClick={this.props.onClick}>
+            <div className="drink">
                 <div className="drink-title">
                     <b>{name}</b> - ${cost}
                 </div>
@@ -77,8 +79,20 @@ class DrinkWindow extends React.Component {
                         <br/><br/>
                         {flavorsString}
                 </div>
-                <div class="navigation">
-                    
+                <div className="navigation">
+                    <img 
+                        className={"left " + (index !== 1 ? 'active' : '')} 
+                        src={arrow} 
+                        alt="Navigate to previous drink"
+                        onClick={this.props.navPrevDrink}
+                    />
+                    <span className="midsection">{index}/{totalDrinks}</span>
+                    <img
+                        className={"right " + (index !== totalDrinks ? 'active' : '')} 
+                        src={arrow} 
+                        alt="Navigate to next drink"
+                        onClick={this.props.navNextDrink}
+                    />
                 </div>
             </div>
         );

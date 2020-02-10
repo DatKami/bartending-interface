@@ -46,7 +46,9 @@ class TabWindow extends React.Component {
             {!isNaN(this.props.activeOption) &&
                 <DrinkWindow
                     drink={this.props.allDrinks[this.props.activeOption]}
-                    onClick={this.props.clearActiveOption}
+                    totalDrinks={this.props.allDrinks.length}
+                    navNextDrink={this.props.navNextDrink}
+                    navPrevDrink={this.props.navPrevDrink}
                 />
             }
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import TabWindow from './TabWindow';
+import Tab from './Tab';
 import calicomp from './assets/calicomp.png';
 import UIfx from 'uifx';
 import tabSFX from './assets/tab.mp3';
@@ -74,50 +75,49 @@ const options = [
   }
 ];
 
-const byName = {
-  name: 'name',
-  className: 'sort-name',
-  perRow: 2,
-  isBottledDrinks: false,
-  options: [
-    {
-      name: 'B',
-      options: [1,2,3]
-    },
-    {
-      name: 'C',
-      options: []
-    },
-    {
-      name: 'F',
-      options: []
-    },
-    {
-      name: 'G',
-      options: []
-    },
-    {
-      name: 'M',
-      options: []
-    },
-    {
-      name: 'P',
-      options: []
-    },
-    {
-      name: 'S',
-      options: []
-    },
-    {
-      name: 'Z',
-      options: []
-    },
-  ]
-};
-
 const tabs = [
   {
-    title: 'By Name'
+    title: 'By Name',
+    windowInfo: {
+      name: 'name',
+      className: 'sort-name',
+      perRow: 2,
+      isBottledDrinks: false,
+      options: [
+        {
+          name: 'B',
+          options: [1,2,3]
+        },
+        {
+          name: 'C',
+          options: []
+        },
+        {
+          name: 'F',
+          options: []
+        },
+        {
+          name: 'G',
+          options: []
+        },
+        {
+          name: 'M',
+          options: []
+        },
+        {
+          name: 'P',
+          options: []
+        },
+        {
+          name: 'S',
+          options: []
+        },
+        {
+          name: 'Z',
+          options: []
+        },
+      ]
+    }
   },
   {
     title: 'By Flavor'
@@ -135,9 +135,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      activeTab: 0,
-      activeOptionsGroup: 0,
-      activeOption: undefined
+      activeTab: undefined,
+      activeOptionsGroup: undefined,
+      activeOption: 0
     };
   }
 
@@ -162,7 +162,9 @@ class App extends React.Component {
   setActiveTab = (i) => {
       if (i !== this.state.activeTab) {
           this.setState({
-              activeTab: i
+              activeTab: i,
+              activeOptionsGroup: undefined,
+              activeOption: undefined
           });
           tabSound.play();
       }
@@ -181,6 +183,24 @@ class App extends React.Component {
     });
   }
 
+  navNextDrink() {
+    if (this.state.activeOption < options.length -1) {
+      this.setState({
+          activeOption: this.state.activeOption + 1
+      })
+      tabSound.play();
+    }
+  }
+
+  navPrevDrink() {
+    if (this.state.activeOption > 0) {
+      this.setState({
+          activeOption: this.state.activeOption - 1
+      })
+      tabSound.play();
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -189,22 +209,26 @@ class App extends React.Component {
             <div className="System-window">
               <div className="System-window-tab-bar">
                 {tabs.map((tab, index) => { return (
-                  <div className={"System-window-tab " + (this.state.activeTab === index ? 'selected' : '')}>
-                    {tab.title}
-                  </div>  
+                  <Tab 
+                    {...tab}
+                    selected={this.state.activeTab === index}
+                    index={index}
+                    setActiveTab={this.setActiveTab}
+                  />
                 )})
                 }
               </div>
               <div className="System-window-inner">
                 <TabWindow 
-                  {...byName} 
+                  {...tabs[this.state.activeTab ?? 0].windowInfo} // TODO: ?? 0 needs to be a number or crashes
                   allDrinks={options} 
                   activeOption={this.state.activeOption}
                   activeOptionsGroup={this.state.activeOptionsGroup}
                   setActiveOption={this.setActiveOption}
                   setActiveOptionsGroup={this.setActiveOptionsGroup}
                   clearActiveTab={this.clearActiveTab.bind(this)}
-                  clearActiveOption={this.clearActiveOption.bind(this)}
+                  navNextDrink={this.navNextDrink.bind(this)}
+                  navPrevDrink={this.navPrevDrink.bind(this)}
                 />
               </div>
               <div className="System-window-inner-decoration left"></div>

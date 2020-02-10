@@ -86,6 +86,23 @@ const drinks = [
         },
         flavorText: 'One of these will make all your teeth turn blue. Hope you brushed them well.',
         flavorTypes: ['Sweet', 'Girly', 'Soft']
+    },
+    {
+        name: 'Sugar Rush',
+        cost: 170,
+        index: 6,
+        ingredients: {
+            adelhyde: 4,
+            bronsonExtract: 0,
+            powderedDelta: 0,
+            flanergide: 1,
+            karmotrine: 'optional',
+            rocks: false,
+            aged: true,
+            blended: false
+        },
+        flavorText: 'One of these will make all your teeth turn blue. Hope you brushed them well.',
+        flavorTypes: ['Sweet', 'Girly', 'Soft']
     }
 ];
 

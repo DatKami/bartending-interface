@@ -70,7 +70,7 @@ const tabs = [
       options: [
         {
           name: 'Sweet Drinks',
-          options: [5]
+          options: [6, 5]
         },
         {
           name: 'Bitter Drinks',

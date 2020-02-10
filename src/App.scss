@@ -24,10 +24,10 @@ body {
   overflow-y: hidden;
 }
 
-$aspect-ratio: 820/484;
+$aspect-ratio: 820/482;
 
 html {
-  font-size: min(3.30579vw/$aspect-ratio, 3.30579vh);
+  font-size: min(3.3195vw/$aspect-ratio, 3.3195vh);
 }
 
 .App {
@@ -50,7 +50,7 @@ html {
     text-align: center;
     font-family: 'CyberpunkWaifus';
     background-color: #264BFF;
-    font-size: (27.8rem/16);
+    font-size: (28rem/16);
     display: flex;
     flex-direction: row;
     color: white;
@@ -103,66 +103,96 @@ html {
     
           .System-window-inner-sort {
             padding-top: (47rem/16);
-    
+
             .System-window-inner-sort-left {
-              width: 43%;
               float: left;
-    
+
+              .sort-options {
+                display: flex;
+              }
+
               .System-window-inner-sort-title {
                 margin-bottom: (36rem/16);
                 padding-left: (32.5rem/16);
               }
-    
-              .sort-name {
-                display: flex;
-                flex-wrap: wrap;
-              
-                .option {
-                  flex: 0 calc(50% - 8rem);
-                  padding: (17rem/16) (55rem/16) (10rem/16) (42rem/16);
-                  margin-left: (20rem/16);
-                  margin-right: (1.5rem/16);
-                  margin-bottom: (8rem/16);
-                  color: #808080;
-                
-                  &.selected, &:hover, &:active {
-                    color: #FFF;
-                  }
-                }
-              }        
-              
-              .sort-flavor {
-                display: flex;
-                flex-direction: column;
-              
-                .option {
-                  flex: 0 calc(50% - 8rem);
-                  padding: (17rem/16) (55rem/16) (10rem/16) (42rem/16);
-                  margin-left: (20rem/16);
-                  margin-right: (1.5rem/16);
-                  margin-bottom: (8rem/16);
-                  color: #808080;
-                
-                  &.selected, &:hover, &:active {
-                    color: #FFF;
-                  }
-                }
-              } 
+            
             }
 
-            .sort-right {
-              margin-left: (59rem/16);
-              float: left;
-              display: flex;
-              flex-direction: column;
-
-              .option {
-                padding: (17rem/16) (55rem/16) (10rem/16) (42rem/16);
-                margin-bottom: (8rem/16);
-                color: #808080;
+            &.sort-name {
+              .System-window-inner-sort-left {
+                width: 43%;
+      
+                .sort-options {
+                  flex-wrap: wrap;
                 
-                &.selected, &:hover, &:active {
-                  color: #FFF;
+                  .option {
+                    flex: 0 calc(50% - 8rem);
+                    padding: (17rem/16) (55rem/16) (10rem/16) (42rem/16);
+                    margin-left: (20rem/16);
+                    margin-right: (1.5rem/16);
+                    margin-bottom: (8rem/16);
+                    color: #808080;
+                  
+                    &.selected, &:hover, &:active {
+                      color: #FFF;
+                    }
+                  }
+                }        
+              }
+
+              .sort-right {
+                margin-left: (59rem/16);
+                float: left;
+                display: flex;
+                flex-direction: column;
+  
+                .option {
+                  padding: (16rem/16) (55rem/16) (11rem/16) (42rem/16);
+                  margin-bottom: (8rem/16);
+                  color: #808080;
+                  
+                  &.selected, &:hover, &:active {
+                    color: #FFF;
+                  }
+                }
+              }
+            }
+
+            &.sort-flavor {
+              .System-window-inner-sort-left {
+                width: 20rem;
+      
+                .sort-options {
+                  flex-wrap: wrap;
+                
+                  .option {
+                    padding: (17rem/16) (55rem/16) (10rem/16) (12rem/16);
+                    margin-left: (20rem/16);
+                    margin-right: (1.5rem/16);
+                    margin-bottom: (8rem/16);
+                    color: #808080;
+                  
+                    &.selected, &:hover, &:active {
+                      color: #FFF;
+                    }
+                  }
+                }        
+              }
+
+              .sort-right {
+                margin-left: (10rem/16);
+                float: left;
+                display: flex;
+                flex-direction: column;
+  
+                .option {
+                  padding: (16rem/16) (55rem/16) (11rem/16) (42rem/16);
+                  margin-bottom: (8rem/16);
+                  color: #808080;
+                  
+                  &.selected, &:hover, &:active {
+                    color: #FFF;
+                  }
                 }
               }
             }
@@ -204,7 +234,7 @@ html {
               flex-direction: row;
               padding: 0 .25rem;
               font-family: 'CyberpunkWaifus';
-              font-size: (27.8rem/16);
+              font-size: (28rem/16);
               img {
                 width: (46rem/16);
                 height: (48rem/16);

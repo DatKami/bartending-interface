@@ -9,12 +9,12 @@ class TabWindow extends React.Component {
       return (
         <div className="tab-window">
             {isNaN(this.props.activeOption) &&
-                <div className="System-window-inner-sort">
+                <div className={'System-window-inner-sort ' + this.props.className}>
                     <div className="System-window-inner-sort-left">
                         <div className="System-window-inner-sort-title">
                         Search by: {titleCase(this.props.name)}
                         </div>
-                        <div className={this.props.className}>
+                        <div className='sort-options'>
                             {this.props.options.map((option, i) => {
                                 return (
                                     <OptionsGroup 

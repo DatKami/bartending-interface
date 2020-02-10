@@ -27,7 +27,7 @@ const tabs = [
       options: [
         {
           name: 'B',
-          options: [1,2,3]
+          options: [1, 2, 3, 4, 5]
         },
         {
           name: 'C',
@@ -61,7 +61,35 @@ const tabs = [
     }
   },
   {
-    title: 'By Flavor'
+    title: 'By Flavor',
+    windowInfo: {
+      name: 'flavor',
+      className: 'sort-flavor',
+      perRow: 1,
+      isBottledDrinks: false,
+      options: [
+        {
+          name: 'Sweet Drinks',
+          options: [5]
+        },
+        {
+          name: 'Bitter Drinks',
+          options: []
+        },
+        {
+          name: 'Sour Drinks',
+          options: [1]
+        },
+        {
+          name: 'Spicy Drinks',
+          options: [3, 4]
+        },
+        {
+          name: 'Bubbly Drinks',
+          options: [2]
+        }
+      ]
+    }
   },
   {
     title: 'By Type'
@@ -78,7 +106,7 @@ class App extends React.Component {
     this.state = {
       activeTab: undefined,
       activeOptionsGroup: undefined,
-      activeOption: 0
+      activeOption: 4
     };
   }
 
@@ -154,6 +182,7 @@ class App extends React.Component {
                     {...tab}
                     selected={this.state.activeTab === index}
                     index={index}
+                    key={index}
                     setActiveTab={this.setActiveTab}
                   />
                 )})

@@ -5,7 +5,7 @@ import {titleCase} from './util';
 class DrinkWindow extends React.Component {
     render() {
         const {name, index, ingredients, style, cost, flavorText, flavorTypes} = this.props.drink;
-        const {adelhyde, bronsonExtract, powderedDelta, flanergide, karmotrine, optionalKarmotrine, rocks, aged, blended} = ingredients;
+        const {adelhyde, bronsonExtract, powderedDelta, flanergide, karmotrine, rocks, aged, blended} = ingredients;
         const {totalDrinks} = this.props;
         let ingredientList = [
                 {amount: adelhyde, name: 'Adelhyde', className: 'adelhyde'},
@@ -19,8 +19,8 @@ class DrinkWindow extends React.Component {
                 const {amount, className, name} = ingredient; 
                 const isLast = index === arr.length - 1;
                 const isSecondLast = index === arr.length - 2;
-                return (<span>
-                    {isLast && 'and '}
+                return (<span key={index} className={amount === 'optional' ? 'nowrap' : ''}>
+                    {amount === 'optional' ? 'with ' : isLast && 'and '}
                     <span className="nowrap">
                         <span className={className}>{amount + ' ' + name}</span>
                         {isLast ? '.' : isSecondLast ? '' : ','}
@@ -30,7 +30,7 @@ class DrinkWindow extends React.Component {
             }),
             flavorsString = flavorTypes.map((flavor, index, arr) => {
                 const isLast = index === arr.length - 1;
-                return (<span>
+                return (<span key={index}>
                     {flavor + (isLast ? '.' : ', ')}
                 </span>)
             }),
@@ -42,15 +42,15 @@ class DrinkWindow extends React.Component {
         outcomes.push((outcomes.length ? 'and ' : '') + (blended ? 'blended' : 'mixed'));
         
         addonString = name === 'Sunshine Cloud' ? '' : 'all ';
-        addonString += outcomes.join(outcomes.length > 2 ? ', ' : ' ');
-        addonString = titleCase(addonString);
+        addonString += outcomes[0];
+        if (outcomes.length === 3) {
+            addonString +=  ', ' + outcomes[1] +  ' ' + outcomes[2];
+        }
+        if (outcomes.length === 2) {
+            addonString +=  ' ' + outcomes[1];
+        }
 
-        // outcomes.forEach((outcome, index, outcomes) => {
-        //     addonString += outcome;
-        //     if (outcomes.length === 3 && index < 2) {
-        //         addonString += ', '
-        //     }
-        // });
+        addonString = titleCase(addonString);
 
         // if (rocks) {
         //     if (aged) {

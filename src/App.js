@@ -18,15 +18,15 @@ const tabs = [
       options: [
         {
           name: 'B',
-          options: [1, 2, 3, 4, 5]
+          options: [1, 2, 3, 4, 5, 6]
         },
         {
           name: 'C',
-          options: []
+          options: [7, 8]
         },
         {
           name: 'F',
-          options: []
+          options: [9]
         },
         {
           name: 'G',

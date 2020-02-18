@@ -6,14 +6,14 @@ import {isMobile} from 'react-device-detect';
 const tabSound = new UIfx(
     tabSFX,
     {
-        volume: .5,
+        volume: .1,
         throttleMs: 100
     }
 ),
 hoverSound = new UIfx(
     hoverSFX,
     {
-        volume: .5,
+        volume: .1,
         throttleMs: 100
     }
 ),

@@ -17,14 +17,15 @@ function DrinkWindow(props) {
         ].filter(ingredient => ingredient.amount !== 0 && ingredient.amount),
 
         numberedIngredients = ingredientList.map((ingredient, index, arr) => {
-            const {amount, className, name} = ingredient; 
-            const isLast = index === arr.length - 1;
-            const isSecondLast = index === arr.length - 2;
+            const {amount, className, name} = ingredient,
+                  isLast = index === arr.length - 1,
+                  isSecondLast = index === arr.length - 2,
+                  isThirdLast = index === arr.length - 3;
             return (<span key={index} className={amount === 'optional' ? 'nowrap' : ''}>
-                {amount === 'optional' ? 'with ' : isLast && 'and '}
+                {amount === 'optional' ? 'with ' : isLast ? 'and ' : isSecondLast && ingredientList[index + 1].amount === 'optional' ? 'and ' : ''}
                 <span className="nowrap">
                     <span className={className}>{amount + ' ' + name}</span>
-                    {isLast ? '.' : isSecondLast ? '' : ','}
+                    {isLast ? '.' : isSecondLast ? '' : isThirdLast && ingredientList[index + 2].amount === 'optional' ? '' : ','}
                 </span>
                 {' '} 
             </span>)

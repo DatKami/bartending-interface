@@ -1,36 +1,22 @@
 import React from 'react';
-import hoverSFX from './assets/hover.mp3';
-import UIfx from 'uifx';
-import {isMobile} from 'react-device-detect';
+import {AppContext} from './AppContext';
 
-const hoverSound = new UIfx(
-    hoverSFX,
-    {
-        volume: .5,
-        throttleMs: 100
-    }
-)
 
-class Tab extends React.Component {
-    onClick = () => {
-      const { index, setActiveTab } = this.props;
-      setActiveTab(index);
-    }
-  
-    playHoverSound = () => {
-        !isMobile && hoverSound.play();
-    }
-  
-    render() {
-      return (
-        <div 
-          className={"System-window-tab " + (this.props.selected ? 'selected' : '')}
-          onClick={this.onClick}
-        >
-            {this.props.title}
-        </div>  
-      );
-    }
-  }
+function Tab(props) {
+  const context = React.useContext(AppContext),
+        onClick = () => {
+          const { index } = props;
+          context.navigation.setActiveTab(index);
+        };
+    
+  return (
+    <div 
+      className={"System-window-tab " + (props.selected ? 'selected' : '')}
+      onClick={onClick}
+    >
+      {props.title}
+    </div>  
+  );
+}
 
   export default Tab;

@@ -165,8 +165,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <AppContext.Provider value={{
-          setActiveOption: this.setActiveOption,
-          setActiveOptionsGroup: this.setActiveOptionsGroup,
+          navigation: {
+            setActiveOption: this.setActiveOption,
+            setActiveOptionsGroup: this.setActiveOptionsGroup,
+            setActiveTab: this.setActiveTab,
+            clearActiveTab: this.clearActiveTab.bind(this),
+            navNextDrink: this.navNextDrink.bind(this),
+            navPrevDrink: this.navPrevDrink.bind(this)
+          },
           soundManager: SoundManager
         }}>
           <div className="System">
@@ -179,7 +185,6 @@ class App extends React.Component {
                       selected={this.state.activeTab === index}
                       index={index}
                       key={index}
-                      setActiveTab={this.setActiveTab}
                     />
                   )})
                   }
@@ -191,10 +196,6 @@ class App extends React.Component {
                     allDrinks={drinks} 
                     activeOption={this.state.activeOption}
                     activeOptionsGroup={this.state.activeOptionsGroup}
-                    setActiveOptionsGroup={this.setActiveOptionsGroup}
-                    clearActiveTab={this.clearActiveTab.bind(this)}
-                    navNextDrink={this.navNextDrink.bind(this)}
-                    navPrevDrink={this.navPrevDrink.bind(this)}
                   />
                 </div>
                 <div className="System-window-inner-decoration left"></div>

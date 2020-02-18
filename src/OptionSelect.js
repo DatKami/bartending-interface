@@ -6,9 +6,9 @@ import {AppContext} from './AppContext';
 function OptionSelect(props) {
     const context = React.useContext(AppContext),
           onClick = () => {
-            const { index, clearActiveTab } = props;
-            clearActiveTab();
-            context.setActiveOption(index);
+            const { index } = props;
+            context.navigation.clearActiveTab();
+            context.navigation.setActiveOption(index);
           };
   
     return (

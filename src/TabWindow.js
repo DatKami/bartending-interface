@@ -4,54 +4,49 @@ import OptionSelect from './OptionSelect';
 import DrinkWindow from './DrinkWindow';
 import {titleCase} from './util';
 
-class TabWindow extends React.Component {
-    render() {
-      return (
+function TabWindow(props) {
+    return (
         <div className="tab-window">
-            {isNaN(this.props.activeOption) &&
-                <div className={'System-window-inner-sort ' + this.props.className}>
+            {isNaN(props.activeOption) &&
+                <div className={'System-window-inner-sort ' + props.className}>
                     <div className="System-window-inner-sort-left">
                         <div className="System-window-inner-sort-title">
-                        Search by: {titleCase(this.props.name)}
+                        Search by: {titleCase(props.name)}
                         </div>
                         <div className='sort-options'>
-                            {this.props.options.map((option, i) => {
+                            {props.options.map((option, i) => {
                                 return (
                                     <OptionsGroup 
                                         {...option} 
                                         index={i}
                                         key={i}
-                                        currentIndex={this.props.activeOptionsGroup}
+                                        currentIndex={props.activeOptionsGroup}
                                     />
                                 );
                             })}
                         </div>
                     </div>
                     <div className="sort-right">
-                        {this.props.activeOptionsGroup !== undefined && this.props.options[this.props.activeOptionsGroup].options.map((option, i) => {
+                        {props.activeOptionsGroup !== undefined && props.options[props.activeOptionsGroup].options.map((option, i) => {
                             return (
                                 <OptionSelect 
                                     index={option-1}
                                     key={option}
-                                    name={this.props.allDrinks[option - 1].name}
-                                    clearActiveTab={this.props.clearActiveTab}
+                                    name={props.allDrinks[option - 1].name}
                                 />
                             );
                         })}
                     </div>
                 </div>
             }
-            {!isNaN(this.props.activeOption) &&
+            {!isNaN(props.activeOption) &&
                 <DrinkWindow
-                    drink={this.props.allDrinks[this.props.activeOption]}
-                    totalDrinks={this.props.allDrinks.length}
-                    navNextDrink={this.props.navNextDrink}
-                    navPrevDrink={this.props.navPrevDrink}
+                    drink={props.allDrinks[props.activeOption]}
+                    totalDrinks={props.allDrinks.length}
                 />
             }
         </div>
-      );
-    }
+    );
 }
 
 export default TabWindow;

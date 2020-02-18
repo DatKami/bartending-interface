@@ -2,6 +2,7 @@ import React from 'react';
 import hoverSFX from './assets/hover.mp3';
 import UIfx from 'uifx';
 import {isMobile} from 'react-device-detect';
+import {AppContext} from './AppContext';
   
 const hoverSound = new UIfx(
     hoverSFX,
@@ -11,28 +12,25 @@ const hoverSound = new UIfx(
     }
 )
 
-class OptionsGroup extends React.Component {
+function OptionsGroup(props) {
+  const context = React.useContext(AppContext),
     onClick = () => {
-      const { index, onClick } = this.props;
-      onClick(index);
-    }
-  
+      const { index } = props;
+      context.setActiveOptionsGroup(index);
+    },
     playHoverSound = () => {
       !isMobile && hoverSound.play();
-    }
+    };
 
-  
-    render() {
-      return (
-        <div 
-          className={'option ' + (this.props.index === this.props.currentIndex ? 'selected' : '')} 
-          onClick={this.onClick}
-          onMouseEnter={this.playHoverSound.bind(this)}
-        >
-          {this.props.name}
-        </div>
-      );
-    }
-  }
+  return (
+    <div 
+      className={'option ' + (props.index === props.currentIndex ? 'selected' : '')} 
+      onClick={onClick}
+      onMouseEnter={playHoverSound}
+    >
+      {props.name}
+    </div>
+  );
+}
 
-  export default OptionsGroup;
+export default OptionsGroup;

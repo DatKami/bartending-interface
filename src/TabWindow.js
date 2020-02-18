@@ -19,7 +19,6 @@ class TabWindow extends React.Component {
                                 return (
                                     <OptionsGroup 
                                         {...option} 
-                                        onClick={this.props.setActiveOptionsGroup} 
                                         index={i}
                                         key={i}
                                         currentIndex={this.props.activeOptionsGroup}
@@ -35,7 +34,6 @@ class TabWindow extends React.Component {
                                     index={option-1}
                                     key={option}
                                     name={this.props.allDrinks[option - 1].name}
-                                    onClick={this.props.setActiveOption}
                                     clearActiveTab={this.props.clearActiveTab}
                                 />
                             );

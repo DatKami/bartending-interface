@@ -3,18 +3,9 @@ import './App.scss';
 import TabWindow from './TabWindow';
 import Tab from './Tab';
 import calicomp from './assets/calicomp.png';
-import UIfx from 'uifx';
-import tabSFX from './assets/tab.mp3';
 import drinks from './drinks';
-
-
-const tabSound = new UIfx(
-  tabSFX,
-  {
-      volume: .5,
-      throttleMs: 100
-  }
-)
+import {AppContext} from './AppContext';
+import SoundManager from './SoundManager';
 
 const tabs = [
   {
@@ -51,7 +42,7 @@ const tabs = [
         },
         {
           name: 'S',
-          options: []
+          options: [6]
         },
         {
           name: 'Z',
@@ -115,7 +106,7 @@ class App extends React.Component {
           this.setState({
               activeOptionsGroup: i
           });
-          tabSound.play();
+          SoundManager.playSelectSound();
       }
   }
 
@@ -124,7 +115,7 @@ class App extends React.Component {
           this.setState({
               activeOption: i
           });
-          tabSound.play();
+          SoundManager.playSelectSound();
       }
   }
 
@@ -135,7 +126,7 @@ class App extends React.Component {
               activeOptionsGroup: undefined,
               activeOption: undefined
           });
-          tabSound.play();
+          SoundManager.playSelectSound();
       }
   }
 
@@ -143,7 +134,7 @@ class App extends React.Component {
       this.setState({
           activeOption: undefined
       });
-      tabSound.play();
+      SoundManager.playSelectSound();
   }
 
   clearActiveTab() {
@@ -157,7 +148,7 @@ class App extends React.Component {
       this.setState({
           activeOption: this.state.activeOption + 1
       })
-      tabSound.play();
+      SoundManager.playSelectSound();
     }
   }
 
@@ -166,52 +157,58 @@ class App extends React.Component {
       this.setState({
           activeOption: this.state.activeOption - 1
       })
-      tabSound.play();
+      SoundManager.playSelectSound();
     }
   }
 
   render() {
     return (
       <div className="App">
-        <div className="System">
-          <div className="System-window-maintain-aspect">
-            <div className="System-window">
-              <div className="System-window-tab-bar">
-                {tabs.map((tab, index) => { return (
-                  <Tab 
-                    {...tab}
-                    selected={this.state.activeTab === index}
-                    index={index}
-                    key={index}
-                    setActiveTab={this.setActiveTab}
+        <AppContext.Provider value={{
+          setActiveOption: this.setActiveOption,
+          setActiveOptionsGroup: this.setActiveOptionsGroup,
+          soundManager: SoundManager
+        }}>
+          <div className="System">
+            <div className="System-window-maintain-aspect">
+              <div className="System-window">
+                <div className="System-window-tab-bar">
+                  {tabs.map((tab, index) => { return (
+                    <Tab 
+                      {...tab}
+                      selected={this.state.activeTab === index}
+                      index={index}
+                      key={index}
+                      setActiveTab={this.setActiveTab}
+                    />
+                  )})
+                  }
+                </div>
+
+                <div className="System-window-inner">
+                  <TabWindow 
+                    {...tabs[this.state.activeTab ?? 0].windowInfo} // TODO: ?? 0 needs to be a number or crashes
+                    allDrinks={drinks} 
+                    activeOption={this.state.activeOption}
+                    activeOptionsGroup={this.state.activeOptionsGroup}
+                    setActiveOptionsGroup={this.setActiveOptionsGroup}
+                    clearActiveTab={this.clearActiveTab.bind(this)}
+                    navNextDrink={this.navNextDrink.bind(this)}
+                    navPrevDrink={this.navPrevDrink.bind(this)}
                   />
-                )})
-                }
+                </div>
+                <div className="System-window-inner-decoration left"></div>
+                <div className="System-window-inner-decoration right"></div>
+                <div className="System-window-inner-decoration bottom"></div>
               </div>
-              <div className="System-window-inner">
-                <TabWindow 
-                  {...tabs[this.state.activeTab ?? 0].windowInfo} // TODO: ?? 0 needs to be a number or crashes
-                  allDrinks={drinks} 
-                  activeOption={this.state.activeOption}
-                  activeOptionsGroup={this.state.activeOptionsGroup}
-                  setActiveOption={this.setActiveOption}
-                  setActiveOptionsGroup={this.setActiveOptionsGroup}
-                  clearActiveTab={this.clearActiveTab.bind(this)}
-                  navNextDrink={this.navNextDrink.bind(this)}
-                  navPrevDrink={this.navPrevDrink.bind(this)}
-                />
+            </div>
+            <div className="System-sidebar">
+              <div className="System-sidebar-calicomp">
+                <img src={calicomp} alt={''}/>
               </div>
-              <div className="System-window-inner-decoration left"></div>
-              <div className="System-window-inner-decoration right"></div>
-              <div className="System-window-inner-decoration bottom"></div>
             </div>
           </div>
-          <div className="System-sidebar">
-            <div className="System-sidebar-calicomp">
-              <img src={calicomp} alt={''}/>
-            </div>
-          </div>
-        </div>
+        </AppContext.Provider>
       </div>
     )
   }

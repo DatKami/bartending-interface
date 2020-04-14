@@ -16,6 +16,18 @@ function DrinkWindow(props) {
             {amount: karmotrine, name: 'Karmotrine', className: 'karmotrine'}
         ].filter(ingredient => ingredient.amount !== 0 && ingredient.amount),
 
+        numberedIngredients,
+        flavorsString = flavorTypes.map((flavor, index, arr) => {
+            const isLast = index === arr.length - 1;
+            return (<span key={index}>
+                {flavor + (isLast ? '.' : ', ')}
+            </span>)
+        }),
+        addonString;
+
+    if (name === 'Zen Star') {
+        numberedIngredients = <span>4 of each ingredient. <br></br></span>
+    } else {
         numberedIngredients = ingredientList.map((ingredient, index, arr) => {
             const {amount, className, name} = ingredient,
                   isLast = index === arr.length - 1,
@@ -29,14 +41,8 @@ function DrinkWindow(props) {
                 </span>
                 {' '} 
             </span>)
-        }),
-        flavorsString = flavorTypes.map((flavor, index, arr) => {
-            const isLast = index === arr.length - 1;
-            return (<span key={index}>
-                {flavor + (isLast ? '.' : ', ')}
-            </span>)
-        }),
-        addonString;
+        });
+    }
 
     let outcomes = [];
     aged && outcomes.push('aged');

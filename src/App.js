@@ -26,11 +26,11 @@ const tabs = [
         },
         {
           name: 'F',
-          options: [9]
+          options: [9, 10, 11]
         },
         {
           name: 'G',
-          options: []
+          options: [12]
         },
         {
           name: 'M',
@@ -83,7 +83,35 @@ const tabs = [
     }
   },
   {
-    title: 'By Type'
+    title: 'By Type',
+    windowInfo: {
+      name: 'type',
+      className: 'sort-flavor',
+      perRow: 1,
+      isBottledDrinks: false,
+      options: [
+        {
+          name: 'Sweet Drinks',
+          options: [6, 5]
+        },
+        {
+          name: 'Bitter Drinks',
+          options: []
+        },
+        {
+          name: 'Sour Drinks',
+          options: [1]
+        },
+        {
+          name: 'Spicy Drinks',
+          options: [3, 4]
+        },
+        {
+          name: 'Bubbly Drinks',
+          options: [2]
+        }
+      ]
+    }
   },
   {
     title: 'Bottled Drinks'

@@ -30,23 +30,23 @@ const tabs = [
         },
         {
           name: 'G',
-          options: [12]
+          options: [12, 13]
         },
         {
           name: 'M',
-          options: []
+          options: [14, 15, 16]
         },
         {
           name: 'P',
-          options: []
+          options: [17, 18, 19]
         },
         {
           name: 'S',
-          options: [6]
+          options: [20, 21, 22, 23]
         },
         {
           name: 'Z',
-          options: []
+          options: [24]
         },
       ]
     }
@@ -61,23 +61,23 @@ const tabs = [
       options: [
         {
           name: 'Sweet Drinks',
-          options: [6, 5]
+          options: [21, 20, 5, 16, 6, 17]
         },
         {
           name: 'Bitter Drinks',
-          options: []
+          options: [22, 13, 19, 23, 12]
         },
         {
           name: 'Sour Drinks',
-          options: [1]
+          options: [9, 8, 1, 15, 24]
         },
         {
           name: 'Spicy Drinks',
-          options: [3, 4]
+          options: [14, 3, 4]
         },
         {
           name: 'Bubbly Drinks',
-          options: [2]
+          options: [2, 11, 7, 10]
         }
       ]
     }
@@ -91,24 +91,24 @@ const tabs = [
       isBottledDrinks: false,
       options: [
         {
-          name: 'Sweet Drinks',
-          options: [6, 5]
+          name: 'Girly Drinks',
+          options: [21, 20, 5, 9, 22, 16]
         },
         {
-          name: 'Bitter Drinks',
-          options: []
+          name: 'Manly Drinks',
+          options: [13, 19, 23, 14, 8]
         },
         {
-          name: 'Sour Drinks',
-          options: [1]
+          name: 'Classic Drinks',
+          options: [2, 3, 11]
         },
         {
-          name: 'Spicy Drinks',
-          options: [3, 4]
+          name: 'Classy Drinks',
+          options: [1, 6, 7, 10, 15]
         },
         {
-          name: 'Bubbly Drinks',
-          options: [2]
+          name: 'Promo Drinks',
+          options: [12, 4, 24, 17, 18]
         }
       ]
     }
@@ -125,7 +125,7 @@ class App extends React.Component {
     this.state = {
       activeTab: undefined,
       activeOptionsGroup: undefined,
-      activeOption: 4
+      activeOption: undefined
     };
   }
 

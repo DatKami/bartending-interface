@@ -1,3 +1,8 @@
+import Absinthe from './assets/absinthe.png';
+import MulanTea from './assets/mulantea.png';
+import Rum from './assets/rum.png';
+import Plumfume from './assets/plumfume.png';
+
 const drinks = [
     {
         name: 'Bad Touch',
@@ -445,6 +450,42 @@ const drinks = [
         },
         flavorText: 'You\'d think something so balanced would actually taste nice... you\'d be dead wrong.',
         flavorTypes: ['Sour', 'Promo', 'Bland']
+    },
+    {
+        name: 'Absinthe',
+        shorthand: 'Absinthe',
+        image: Absinthe,
+        bottledDrinksIndex: 1,
+        index: 25,
+        cost: 500,
+        flavorText: 'Puke-green\nFairy'
+    },
+    {
+        name: 'Rum',
+        shorthand: 'Rum',
+        image: Rum,
+        bottledDrinksIndex: 2,
+        index: 26,
+        cost: 500,
+        flavorText: 'Grandpa\nBooze'
+    },
+    {
+        name: 'A Fedora',
+        shorthand: 'Plumfume',
+        image: Plumfume,
+        bottledDrinksIndex: 3,
+        index: 27,
+        cost: 500,
+        flavorText: 'W/ perfume\n& a plum'
+    },
+    {
+        name: 'Mulan Tea',
+        shorthand: 'MulanTea',
+        image: MulanTea,
+        bottledDrinksIndex: 4,
+        index: 28,
+        cost: 500,
+        flavorText: 'Spiced Tea'
     }
 ];
 

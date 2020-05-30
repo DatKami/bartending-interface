@@ -3,6 +3,7 @@ import './App.scss';
 import TabWindow from './TabWindow';
 import Tab from './Tab';
 import calicomp from './assets/calicomp.png';
+import MulanTea from './assets/mulantea.png';
 import drinks from './drinks';
 import {AppContext} from './AppContext';
 import SoundManager from './SoundManager';
@@ -114,7 +115,14 @@ const tabs = [
     }
   },
   {
-    title: 'Bottled Drinks'
+    title: 'Bottled Drinks',
+    windowInfo: {
+      isBottledDrinks: true,
+      className: 'sort-bottled',
+      options: [
+        25, 26, 27, 28
+      ]
+    }
   }
 ]
 
@@ -234,6 +242,15 @@ class App extends React.Component {
             <div className="System-sidebar">
               <div className="System-sidebar-calicomp">
                 <img src={calicomp} alt={''}/>
+              </div>
+
+              <div className="drink-preview">
+                <div className="drink-picture">
+                    <img src={MulanTea} alt={''}></img>
+                </div>
+                <div className="drink-name">
+                  Tea
+                </div>
               </div>
             </div>
           </div>

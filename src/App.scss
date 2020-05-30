@@ -137,16 +137,16 @@ html {
               flex-direction: column;
               margin-left: (59rem/16);
 
-              .option {
-                margin-bottom: (8rem/16);
-                color: #808080;
-                padding: (16rem/16) (55rem/16) (11rem/16) (42rem/16);
-                
-                &.selected, &:hover, &:active {
-                  color: #FFF;
+                .option {
+                  margin-bottom: (8rem/16);
+                  color: #808080;
+                  padding: (16rem/16) (55rem/16) (11rem/16) (42rem/16);
+                  
+                  &.selected, &:hover, &:active {
+                    color: #FFF;
+                  }
                 }
               }
-            }
 
             &.sort-name {
               .System-window-inner-sort-left .sort-options .option {
@@ -157,6 +157,52 @@ html {
             &.sort-flavor {
               .System-window-inner-sort-left .sort-options .option {
                 padding-left: (12rem/16);  
+              }
+            }
+
+            &.sort-bottled {
+              .sort-options {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: (-17rem/16);
+                
+                padding-left: (38rem/16);
+                padding-right: (38rem/16);
+
+                .option {
+                  margin: 0 (10rem/16) (20rem/16);
+                  height: (106rem/16); // 116 - 10 
+                  width: (252rem/16);
+                  border: (2rem/16) solid white;
+                  padding-top: (10rem/16);
+
+                  .image {
+                    float: left;
+                    height: (40rem/16);
+                    margin-left:(6rem/16);
+                    width: (60rem/16);
+                    margin-right:(2rem/16);
+                    img {
+                      width: 100%;
+                    }
+                  }
+                  .text {
+                    float: left;
+                    width: (184rem/16);
+                    .description {  
+                      font-family: 'Va-11 Hall-A 6px';
+                      font-size: 1.251rem;    
+                      white-space: pre-wrap; 
+                    }
+                  }
+
+                  &.empty {
+                    border: (2rem/16) solid black;
+                  }
+                }
+              }
+              .bottled-drinks-copy {
+                padding: 0 (48rem/16);
               }
             }
           }
@@ -263,6 +309,40 @@ html {
         margin-right: (2rem/16);
         img {
           width: 100%;
+        }
+      }
+
+      .drink-preview {
+        float: right;
+        width: (144rem/16);
+        height: (170rem/16);
+        background-color: black;
+        margin-top: (172rem/16);
+        margin-right: (6rem/16);
+        border: (4rem/16) solid white;
+
+        .drink-picture {
+          height: (138rem/16);
+          background-color: black;
+          padding: 0 (32rem/16);
+          img {
+            padding-top: (28rem/16);
+            width: (60rem/16);
+          }
+        }
+        .drink-name {
+          text-align: left;
+          font-family: 'Va-11 Hall-A 6px';
+          font-size: 1.251rem;
+          position: relative;
+          bottom: 0;
+          width: (130rem/16);
+          height: (28rem/16);
+          background-color: black;
+          padding-left:(6rem/16);
+          margin-left:(4rem/16);
+          outline: (4rem/16) solid white;
+          outline-offset: (-2rem/16);
         }
       }
     }

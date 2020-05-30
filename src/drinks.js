@@ -6,6 +6,7 @@ import Plumfume from './assets/plumfume.png';
 const drinks = [
     {
         name: 'Bad Touch',
+        shorthand: 'Bad Touch',
         cost: 250,
         index: 1,
         ingredients: {
@@ -26,6 +27,7 @@ const drinks = [
     },  
     {
         name: 'Beer',
+        shorthand: 'Beer',
         cost: 200,
         index: 2,
         ingredients: {
@@ -43,6 +45,7 @@ const drinks = [
     },  
     {
         name: 'Bleeding Jane',
+        shorthand: 'Bleed Jane',
         cost: 200,
         index: 3,
         ingredients: {
@@ -480,7 +483,7 @@ const drinks = [
     },
     {
         name: 'Mulan Tea',
-        shorthand: 'MulanTea',
+        shorthand: 'Tea',
         image: MulanTea,
         bottledDrinksIndex: 4,
         index: 28,

@@ -197,7 +197,12 @@ html {
                   }
 
                   &.empty {
-                    border: (2rem/16) solid black;
+                    border-color: black;
+                  }
+
+                  &.selected, &:hover, &:active {
+                    border-color: #FFBB31;
+                    color: #FFBB31;
                   }
                 }
               }

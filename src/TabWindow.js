@@ -1,6 +1,7 @@
 import React from 'react';
 import OptionsGroup from './OptionsGroup';
 import OptionSelect from './OptionSelect';
+import BottledSelect from './BottledSelect';
 import DrinkWindow from './DrinkWindow';
 import {titleCase} from './util';
 
@@ -46,15 +47,11 @@ function TabWindow(props) {
                             <div className='sort-options'>
                                 {props.allDrinks.filter(drink => drink.bottledDrinksIndex || drink.bottledDrinksIndex === 0).map((drink) => {
                                     return (
-                                        <div className='option'>
-                                            <div className="image">
-                                                <img src={drink.image} alt={''}/>
-                                            </div>
-                                            <div className="text">
-                                                <div className="title">{drink.name}</div>
-                                                <div className="description">"{drink.flavorText}"</div>
-                                            </div>
-                                        </div>
+                                        <BottledSelect
+                                            index={drink.bottledDrinksIndex}
+                                            key={drink.bottledDrinksIndex}
+                                            drink={drink}
+                                        />
                                     );
                                 })}
                             </div>

@@ -3,7 +3,6 @@ import './App.scss';
 import TabWindow from './TabWindow';
 import Tab from './Tab';
 import calicomp from './assets/calicomp.png';
-import MulanTea from './assets/mulantea.png';
 import drinks from './drinks';
 import {AppContext} from './AppContext';
 import SoundManager from './SoundManager';
@@ -133,7 +132,8 @@ class App extends React.Component {
     this.state = {
       activeTab: undefined,
       activeOptionsGroup: undefined,
-      activeOption: undefined
+      activeOption: undefined,
+      activeBottledDrink: undefined
     };
   }
 
@@ -149,7 +149,8 @@ class App extends React.Component {
   setActiveOption = (i) => {
       if (i !== this.state.activeOption) {
           this.setState({
-              activeOption: i
+              activeOption: i,
+              activeBottledDrink: undefined
           });
           SoundManager.playSelectSound();
       }
@@ -160,15 +161,27 @@ class App extends React.Component {
           this.setState({
               activeTab: i,
               activeOptionsGroup: undefined,
-              activeOption: undefined
+              activeOption: undefined,
+              activeBottledDrink: undefined
           });
           SoundManager.playSelectSound();
       }
   }
 
+  setBottledDrink = (i) => {
+    if (i !== this.state.activeBottledDrink) {
+        this.setState({
+            activeOption: undefined,
+            activeBottledDrink: i
+        });
+        SoundManager.playSelectSound();
+    }
+  }
+
   clearActiveOption = () => {
       this.setState({
-          activeOption: undefined
+          activeOption: undefined,
+          activeBottledDrink: undefined
       });
       SoundManager.playSelectSound();
   }
@@ -205,6 +218,7 @@ class App extends React.Component {
             setActiveOption: this.setActiveOption,
             setActiveOptionsGroup: this.setActiveOptionsGroup,
             setActiveTab: this.setActiveTab,
+            setBottledDrink: this.setBottledDrink,
             clearActiveTab: this.clearActiveTab.bind(this),
             navNextDrink: this.navNextDrink.bind(this),
             navPrevDrink: this.navPrevDrink.bind(this)
@@ -244,14 +258,29 @@ class App extends React.Component {
                 <img src={calicomp} alt={''}/>
               </div>
 
-              <div className="drink-preview">
-                <div className="drink-picture">
-                    <img src={MulanTea} alt={''}></img>
+              {(this.state.activeBottledDrink || this.state.activeBottledDrink === 0) &&
+                <div className="drink-preview">
+                  <div className="drink-picture">
+                    <img src={drinks.filter(drink => drink.bottledDrinksIndex === this.state.activeBottledDrink)[0].image} alt={''}></img>
+                  </div>
+                  
+                  <div className="drink-name">
+                    {drinks.filter(drink => drink.bottledDrinksIndex === this.state.activeBottledDrink)[0].shorthand}
+                  </div>
                 </div>
-                <div className="drink-name">
-                  Tea
+              }
+
+              {(this.state.activeOption || this.state.activeOption === 0) &&
+                <div className="drink-preview">
+                  <div className="drink-picture">
+                    <img src={drinks[this.state.activeOption].image} alt={''}></img>
+                  </div>
+                  
+                  <div className="drink-name">
+                    {drinks[this.state.activeOption].shorthand}
+                  </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </AppContext.Provider>

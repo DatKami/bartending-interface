@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/bartending-interface/static/css/main.3a68e47d.chunk.css",
-    "main.js": "/bartending-interface/static/js/main.0b2972e0.chunk.js",
-    "main.js.map": "/bartending-interface/static/js/main.0b2972e0.chunk.js.map",
+    "main.js": "/bartending-interface/static/js/main.fb84a9ed.chunk.js",
+    "main.js.map": "/bartending-interface/static/js/main.fb84a9ed.chunk.js.map",
     "runtime-main.js": "/bartending-interface/static/js/runtime-main.5a991387.js",
     "runtime-main.js.map": "/bartending-interface/static/js/runtime-main.5a991387.js.map",
     "static/js/2.fa9ce663.chunk.js": "/bartending-interface/static/js/2.fa9ce663.chunk.js",
     "static/js/2.fa9ce663.chunk.js.map": "/bartending-interface/static/js/2.fa9ce663.chunk.js.map",
     "index.html": "/bartending-interface/index.html",
-    "precache-manifest.33407c2bed3ad02971c41bf5dc4e1569.js": "/bartending-interface/precache-manifest.33407c2bed3ad02971c41bf5dc4e1569.js",
+    "precache-manifest.355eb9204a40188bed42dab4c1b53729.js": "/bartending-interface/precache-manifest.355eb9204a40188bed42dab4c1b53729.js",
     "service-worker.js": "/bartending-interface/service-worker.js",
     "static/css/main.3a68e47d.chunk.css.map": "/bartending-interface/static/css/main.3a68e47d.chunk.css.map",
     "static/js/2.fa9ce663.chunk.js.LICENSE.txt": "/bartending-interface/static/js/2.fa9ce663.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.5a991387.js",
     "static/js/2.fa9ce663.chunk.js",
     "static/css/main.3a68e47d.chunk.css",
-    "static/js/main.0b2972e0.chunk.js"
+    "static/js/main.fb84a9ed.chunk.js"
   ]
 }

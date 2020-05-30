@@ -2,11 +2,36 @@ import Absinthe from './assets/absinthe.png';
 import MulanTea from './assets/mulantea.png';
 import Rum from './assets/rum.png';
 import Plumfume from './assets/plumfume.png';
+import BadTouch from './assets/badtouch.png';
+import Beer from './assets/beer.png';
+import BleedingJane from './assets/bleedingjane.png';
+import BloomLight from './assets/bloomlight.png';
+import BlueFairy from './assets/bluefairy.png';
+import Brandtini from './assets/brandtini.png';
+import CobaltVelvet from './assets/cobaltvelvet.png';
+import CreviceSpike from './assets/crevicespike.png';
+import FluffyDream from './assets/fluffydream.png';
+import FringeWeaver from './assets/fringeweaver.png';
+import FrothyWater from './assets/frothywater.png';
+import GrizzlyTemple from './assets/grizzlytemple.png';
+import GutPunch from './assets/gutpunch.png';
+import Marsblast from './assets/marsblast.png';
+import MercuryBlast from './assets/mercuryblast.png';
+import Moonblast from './assets/moonblast.png';
+import PianoMan from './assets/pianoman.png';
+import PianoWoman from './assets/pianowoman.png';
+import Piledriver from './assets/piledriver.png';
+import SparkleStar from './assets/sparklestar.png';
+import SugarRush from './assets/sugarrush.png';
+import SunshineCloud from './assets/sunshinecloud.png';
+import Suplex from './assets/suplex.png';
+import ZenStar from './assets/zenstar.png';
 
 const drinks = [
     {
         name: 'Bad Touch',
         shorthand: 'Bad Touch',
+        image: BadTouch,
         cost: 250,
         index: 1,
         ingredients: {
@@ -28,6 +53,7 @@ const drinks = [
     {
         name: 'Beer',
         shorthand: 'Beer',
+        image: Beer,
         cost: 200,
         index: 2,
         ingredients: {
@@ -46,6 +72,7 @@ const drinks = [
     {
         name: 'Bleeding Jane',
         shorthand: 'Bleed Jane',
+        image: BleedingJane,
         cost: 200,
         index: 3,
         ingredients: {
@@ -63,6 +90,8 @@ const drinks = [
     },
     {
         name: 'Bloom Light',
+        shorthand:'Bloom Lght',
+        image: BloomLight,
         cost: 230,
         index: 4,
         ingredients: {
@@ -80,6 +109,8 @@ const drinks = [
     },
     {
         name: 'Blue Fairy',
+        shorthand: 'Blue Fairy',
+        image: BlueFairy,
         cost: 170,
         index: 5,
         ingredients: {
@@ -97,6 +128,8 @@ const drinks = [
     },
     {
         name: 'Brandtini',
+        shorthand: 'Brandtini',
+        image: Brandtini,
         cost: 250,
         index: 6,
         ingredients: {
@@ -117,6 +150,8 @@ const drinks = [
     },
     {
         name: 'Cobalt Velvet',
+        shorthand: 'Coblt Vlvt',
+        image: CobaltVelvet,
         cost: 280,
         index: 7,
         ingredients: {
@@ -137,6 +172,8 @@ const drinks = [
     },
     {
         name: 'Crevice Spike',
+        shorthand: 'Crv Spike',
+        image: CreviceSpike,
         cost: 140,
         index: 8,
         ingredients: {
@@ -157,6 +194,8 @@ const drinks = [
     },
     {
         name: 'Fluffy Dream',
+        shorthand: 'Flff Dream',
+        image: FluffyDream,
         cost: 170,
         index: 9,
         ingredients: {
@@ -177,6 +216,8 @@ const drinks = [
     },
     {
         name: 'Fringe Weaver',
+        shorthand: 'Frng Weavr',
+        image: FringeWeaver,
         cost: 260,
         index: 10,
         ingredients: {
@@ -195,6 +236,8 @@ const drinks = [
     },
     {
         name: 'Frothy Water',
+        shorthand: 'Frothy Wtr',
+        image: FrothyWater,
         cost: 150,
         index: 11,
         ingredients: {
@@ -215,6 +258,8 @@ const drinks = [
     },
     {
         name: 'Grizzly Temple',
+        shorthand: 'Grizz Tmpl',
+        image: GrizzlyTemple,
         cost: 220,
         index: 12,
         ingredients: {
@@ -233,6 +278,8 @@ const drinks = [
     },
     {
         name: 'Gut Punch',
+        shorthand: 'Gut Punch',
+        image: GutPunch,
         cost: 80,
         index: 13,
         ingredients: {
@@ -251,6 +298,8 @@ const drinks = [
     },
     {
         name: 'Marsblast',
+        shorthand: 'Marsblast',
+        image: Marsblast,
         cost: 170,
         index: 14,
         ingredients: {
@@ -271,6 +320,8 @@ const drinks = [
     },
     {
         name: 'Mercury Blast',
+        shorthand: 'Mercryblst',
+        image: MercuryBlast,
         cost: 250,
         index: 15,
         ingredients: {
@@ -291,6 +342,8 @@ const drinks = [
     },
     {
         name: 'Moonblast',
+        shorthand: 'Moonblast',
+        image: Moonblast,
         cost: 180,
         index: 16,
         ingredients: {
@@ -311,6 +364,8 @@ const drinks = [
     },
     {
         name: 'Piano Man',
+        shorthand: 'Piano Man',
+        image: PianoMan,
         cost: 320,
         index: 17,
         ingredients: {
@@ -329,6 +384,8 @@ const drinks = [
     },
     {
         name: 'Piano Woman',
+        shorthand: 'P. Woman',
+        image: PianoWoman,
         cost: 320,
         index: 18,
         ingredients: {
@@ -347,6 +404,8 @@ const drinks = [
     },
     {
         name: 'Piledriver',
+        shorthand: 'Piledriver',
+        image: Piledriver,
         cost: 160,
         index: 19,
         ingredients: {
@@ -367,6 +426,8 @@ const drinks = [
     },
     {
         name: 'Sparkle Star',
+        shorthand: 'Spark Star',
+        image: SparkleStar,
         cost: 150,
         index: 20,
         ingredients: {
@@ -385,6 +446,8 @@ const drinks = [
     },
     {
         name: 'Sugar Rush',
+        shorthand: 'Sugar Rush',
+        image: SugarRush,
         cost: 150,
         index: 21,
         ingredients: {
@@ -402,6 +465,8 @@ const drinks = [
     },
     {
         name: 'Sunshine Cloud',
+        shorthand: 'Sun Cloud',
+        image: SunshineCloud,
         cost: 150,
         index: 22,
         ingredients: {
@@ -419,6 +484,8 @@ const drinks = [
     },
     {
         name: 'Suplex',
+        shorthand: 'Suplex',
+        image: Suplex,
         cost: 160,
         index: 23,
         ingredients: {
@@ -439,6 +506,8 @@ const drinks = [
     },
     {
         name: 'Zen Star',
+        shorthand: 'Zen Star',
+        image: ZenStar,
         cost: 210,
         index: 24,
         ingredients: {

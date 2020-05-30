@@ -329,9 +329,12 @@ html {
         .drink-picture {
           height: (138rem/16);
           background-color: black;
-          padding: 0 (32rem/16);
+          position: relative;
+
           img {
-            padding-top: (28rem/16);
+            position: absolute;
+            bottom: (20rem/16);
+            left: (42rem/16);
             width: (60rem/16);
           }
         }

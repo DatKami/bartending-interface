@@ -51,6 +51,7 @@ function TabWindow(props) {
                                             index={drink.bottledDrinksIndex}
                                             key={drink.bottledDrinksIndex}
                                             drink={drink}
+                                            currentIndex={props.activeBottledDrink}
                                         />
                                     );
                                 })}

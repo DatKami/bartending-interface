@@ -193,7 +193,7 @@ class App extends React.Component {
   }
 
   navNextDrink() {
-    if (this.state.activeOption < drinks.length -1) {
+    if (this.state.activeOption < drinks.filter(drink => !drink.bottledDrinksIndex && !(drink.bottledDrinksIndex === 0)).length -1) {
       this.setState({
           activeOption: this.state.activeOption + 1
       })
@@ -246,6 +246,7 @@ class App extends React.Component {
                     allDrinks={drinks} 
                     activeOption={this.state.activeOption}
                     activeOptionsGroup={this.state.activeOptionsGroup}
+                    activeBottledDrink={this.state.activeBottledDrink}
                   />
                 </div>
                 <div className="System-window-inner-decoration left"></div>

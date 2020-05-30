@@ -12,7 +12,7 @@ function BottledSelect(props) {
   
     return (
         <div 
-            className='option'
+            className={'option ' + (props.index === props.currentIndex ? 'selected' : '')}
             onClick={onClick}
             onMouseEnter={context.soundManager.playHoverSound}
         >

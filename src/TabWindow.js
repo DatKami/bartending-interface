@@ -3,12 +3,13 @@ import OptionsGroup from './OptionsGroup';
 import OptionSelect from './OptionSelect';
 import BottledSelect from './BottledSelect';
 import DrinkWindow from './DrinkWindow';
+import BTC from './assets/btc.png'
 import {titleCase} from './util';
 
 function TabWindow(props) {
     return (
         <div className="tab-window">
-            {isNaN(props.activeOption) &&
+            {isNaN(props.activeOption) && !props.startup &&
                 <div className={'System-window-inner-sort ' + props.className}>
                     {!props.isBottledDrinks &&
                         <div>
@@ -64,6 +65,9 @@ function TabWindow(props) {
                         </div>
                     }
                 </div>
+            }
+            {isNaN(props.activeOption) && props.startup &&
+                <img className="btcImage" src={BTC} alt=""></img>
             }
             {!isNaN(props.activeOption) &&
                 <DrinkWindow

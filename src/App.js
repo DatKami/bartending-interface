@@ -133,7 +133,8 @@ class App extends React.Component {
       activeTab: undefined,
       activeOptionsGroup: undefined,
       activeOption: undefined,
-      activeBottledDrink: undefined
+      activeBottledDrink: undefined,
+      startup: true
     };
   }
 
@@ -162,7 +163,8 @@ class App extends React.Component {
               activeTab: i,
               activeOptionsGroup: undefined,
               activeOption: undefined,
-              activeBottledDrink: undefined
+              activeBottledDrink: undefined,
+              startup: false
           });
           SoundManager.playSelectSound();
       }
@@ -241,13 +243,16 @@ class App extends React.Component {
                 </div>
 
                 <div className="System-window-inner">
-                  <TabWindow 
-                    {...tabs[this.state.activeTab ?? 0].windowInfo} // TODO: ?? 0 needs to be a number or crashes
-                    allDrinks={drinks} 
-                    activeOption={this.state.activeOption}
-                    activeOptionsGroup={this.state.activeOptionsGroup}
-                    activeBottledDrink={this.state.activeBottledDrink}
-                  />
+                  {
+                    <TabWindow 
+                      {...(this.state.activeTab || this.state.activeTab === 0 ? tabs[this.state.activeTab].windowInfo : {})} // TODO: ?? 0 needs to be a number or crashes
+                      allDrinks={drinks} 
+                      activeOption={this.state.activeOption}
+                      activeOptionsGroup={this.state.activeOptionsGroup}
+                      activeBottledDrink={this.state.activeBottledDrink}
+                      startup={this.state.startup}
+                    />
+                  }
                 </div>
                 <div className="System-window-inner-decoration left"></div>
                 <div className="System-window-inner-decoration right"></div>

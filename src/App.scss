@@ -211,6 +211,13 @@ html {
               }
             }
           }
+
+          .btcImage {
+            // width: 100%;
+            // display: none;
+            width: (630rem/16);
+            height: (420rem/16);
+          }
           
           .drink {
             padding: (32rem/16) 0 0 (22rem/16);

@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "52400e3d91f51bb7b78ade4b71137cfc",
+    "revision": "9933e3c5305e8662fdbd116985825159",
     "url": "/bartending-interface/index.html"
   },
   {
-    "revision": "993d18cca67b3d457108",
-    "url": "/bartending-interface/static/css/main.31eeeee5.chunk.css"
+    "revision": "17b55e2c8ebf2a9167e4",
+    "url": "/bartending-interface/static/css/main.3dd48873.chunk.css"
   },
   {
-    "revision": "bd5440ee028f0eebb29e",
-    "url": "/bartending-interface/static/js/2.1d095d02.chunk.js"
+    "revision": "a69ad233d3df2640e73e",
+    "url": "/bartending-interface/static/js/2.28d8f331.chunk.js"
   },
   {
     "revision": "ac3f8e58b5796b271331f2926a0e8b61",
-    "url": "/bartending-interface/static/js/2.1d095d02.chunk.js.LICENSE.txt"
+    "url": "/bartending-interface/static/js/2.28d8f331.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "993d18cca67b3d457108",
-    "url": "/bartending-interface/static/js/main.de367b9b.chunk.js"
+    "revision": "17b55e2c8ebf2a9167e4",
+    "url": "/bartending-interface/static/js/main.979f08d8.chunk.js"
   },
   {
     "revision": "756bc7a0edce78e98672",

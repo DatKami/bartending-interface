@@ -192,6 +192,8 @@ class App extends React.Component {
           activeOption: this.state.activeOption + 1
       })
       SoundManager.playOptionsGroupSound();
+    } else {
+      SoundManager.playDrinkSound();
     }
   }
 
@@ -201,6 +203,8 @@ class App extends React.Component {
           activeOption: this.state.activeOption - 1
       })
       SoundManager.playOptionsGroupSound();
+    } else {
+      SoundManager.playDrinkSound();
     }
   }
 
@@ -220,7 +224,10 @@ class App extends React.Component {
           soundManager: SoundManager
         }}>
           <div className="System">
-            <div className="System-window-maintain-aspect">
+            <div 
+              className="System-window-maintain-aspect"
+              onAnimationEnd={SoundManager.playOpenSound}
+            >
               <div className="System-window">
                 <div className="System-window-tab-bar">
                   {tabs.map((tab, index) => { return (
@@ -250,6 +257,9 @@ class App extends React.Component {
                 <div className="System-window-inner-decoration right"></div>
                 <div className="System-window-inner-decoration bottom"></div>
               </div>
+            </div>
+            <div className="blinder">
+
             </div>
             <div className="System-sidebar">
               <div className="System-sidebar-calicomp">

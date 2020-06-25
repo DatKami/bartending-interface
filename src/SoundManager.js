@@ -3,6 +3,7 @@ import hoverSFX from './assets/hover.mp3';
 import tabSFX from './assets/tab.mp3';
 import optionsGroupSFX from './assets/optionselect.mp3';
 import drinkSFX from './assets/drinkselect.mp3';
+import openSFX from './assets/open.mp3';
 import {isMobile} from 'react-device-detect';
 
 const settings = {
@@ -17,11 +18,13 @@ const settings = {
     hoverSound = new UIfx(hoverSFX, settings),
     optionsGroupSound = new UIfx(optionsGroupSFX, quieterSettings),
     drinkSound = new UIfx(drinkSFX, quieterSettings),
+    openSound = new UIfx(openSFX, quieterSettings),
     SoundManager = {
         playHoverSound: () => { !isMobile && hoverSound.play()},
         playTabSound: () => { tabSound.play() },
         playDrinkSound: () => { drinkSound.play() },
-        playOptionsGroupSound: () => { optionsGroupSound.play() }
+        playOptionsGroupSound: () => { optionsGroupSound.play() },
+        playOpenSound: () => { openSound.play() }
     };
 
 export default SoundManager; 

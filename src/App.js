@@ -143,7 +143,7 @@ class App extends React.Component {
           this.setState({
               activeOptionsGroup: i
           });
-          SoundManager.playSelectSound();
+          SoundManager.playOptionsGroupSound();
       }
   }
 
@@ -153,7 +153,7 @@ class App extends React.Component {
               activeOption: i,
               activeBottledDrink: undefined
           });
-          SoundManager.playSelectSound();
+          SoundManager.playDrinkSound();
       }
   }
 
@@ -166,7 +166,7 @@ class App extends React.Component {
               activeBottledDrink: undefined,
               startup: false
           });
-          SoundManager.playSelectSound();
+          SoundManager.playTabSound();
       }
   }
 
@@ -176,16 +176,8 @@ class App extends React.Component {
             activeOption: undefined,
             activeBottledDrink: i
         });
-        SoundManager.playSelectSound();
+        SoundManager.playDrinkSound();
     }
-  }
-
-  clearActiveOption = () => {
-      this.setState({
-          activeOption: undefined,
-          activeBottledDrink: undefined
-      });
-      SoundManager.playSelectSound();
   }
 
   clearActiveTab() {
@@ -199,7 +191,7 @@ class App extends React.Component {
       this.setState({
           activeOption: this.state.activeOption + 1
       })
-      SoundManager.playSelectSound();
+      SoundManager.playOptionsGroupSound();
     }
   }
 
@@ -208,7 +200,7 @@ class App extends React.Component {
       this.setState({
           activeOption: this.state.activeOption - 1
       })
-      SoundManager.playSelectSound();
+      SoundManager.playOptionsGroupSound();
     }
   }
 

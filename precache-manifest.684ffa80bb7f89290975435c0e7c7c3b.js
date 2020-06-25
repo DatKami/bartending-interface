@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4feaeae39eaeeb929a3f5e57c051f42e",
+    "revision": "69eefbc67233e5ba8232b379062f0284",
     "url": "/bartending-interface/index.html"
   },
   {
-    "revision": "3c7fc34cb3ffa846c528",
-    "url": "/bartending-interface/static/css/main.3dd48873.chunk.css"
+    "revision": "7e55d067e118967845e9",
+    "url": "/bartending-interface/static/css/main.c0b7af52.chunk.css"
   },
   {
-    "revision": "83713120eeb8f543de4b",
-    "url": "/bartending-interface/static/js/2.98e472bd.chunk.js"
+    "revision": "8aa6051a7c9db4279e10",
+    "url": "/bartending-interface/static/js/2.c69d2701.chunk.js"
   },
   {
     "revision": "ac3f8e58b5796b271331f2926a0e8b61",
-    "url": "/bartending-interface/static/js/2.98e472bd.chunk.js.LICENSE.txt"
+    "url": "/bartending-interface/static/js/2.c69d2701.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c7fc34cb3ffa846c528",
-    "url": "/bartending-interface/static/js/main.d96f8d43.chunk.js"
+    "revision": "7e55d067e118967845e9",
+    "url": "/bartending-interface/static/js/main.6858059a.chunk.js"
   },
   {
     "revision": "756bc7a0edce78e98672",
@@ -34,6 +34,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fc2728cd716c0f863c6e0573feeac45f",
     "url": "/bartending-interface/static/media/hover.fc2728cd.mp3"
+  },
+  {
+    "revision": "224d84027521598c78310ae761821264",
+    "url": "/bartending-interface/static/media/open.224d8402.mp3"
   },
   {
     "revision": "4606d7e826feaa67008582ed477e5a3e",

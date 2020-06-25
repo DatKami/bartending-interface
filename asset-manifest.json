@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bartending-interface/static/css/main.19bcb407.chunk.css",
+    "main.css": "/bartending-interface/static/css/main.78d257c1.chunk.css",
     "main.js": "/bartending-interface/static/js/main.6858059a.chunk.js",
     "main.js.map": "/bartending-interface/static/js/main.6858059a.chunk.js.map",
     "runtime-main.js": "/bartending-interface/static/js/runtime-main.5a991387.js",
@@ -8,9 +8,9 @@
     "static/js/2.c69d2701.chunk.js": "/bartending-interface/static/js/2.c69d2701.chunk.js",
     "static/js/2.c69d2701.chunk.js.map": "/bartending-interface/static/js/2.c69d2701.chunk.js.map",
     "index.html": "/bartending-interface/index.html",
-    "precache-manifest.533ffa0a42c85bfcfedfc1b6d7767642.js": "/bartending-interface/precache-manifest.533ffa0a42c85bfcfedfc1b6d7767642.js",
+    "precache-manifest.1a86f811924163b5e39f4ae7f37eb8d7.js": "/bartending-interface/precache-manifest.1a86f811924163b5e39f4ae7f37eb8d7.js",
     "service-worker.js": "/bartending-interface/service-worker.js",
-    "static/css/main.19bcb407.chunk.css.map": "/bartending-interface/static/css/main.19bcb407.chunk.css.map",
+    "static/css/main.78d257c1.chunk.css.map": "/bartending-interface/static/css/main.78d257c1.chunk.css.map",
     "static/js/2.c69d2701.chunk.js.LICENSE.txt": "/bartending-interface/static/js/2.c69d2701.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/bartending-interface/static/media/va-11-hall-a-6px-webfont.a2c73de9.woff",
     "static/media/drinkselect.mp3": "/bartending-interface/static/media/drinkselect.c9b51ad4.mp3",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.5a991387.js",
     "static/js/2.c69d2701.chunk.js",
-    "static/css/main.19bcb407.chunk.css",
+    "static/css/main.78d257c1.chunk.css",
     "static/js/main.6858059a.chunk.js"
   ]
 }

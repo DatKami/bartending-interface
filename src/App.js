@@ -176,7 +176,7 @@ class App extends React.Component {
             activeOption: undefined,
             activeBottledDrink: i
         });
-        SoundManager.playDrinkSound();
+        SoundManager.playOptionsGroupSound();
     }
   }
 

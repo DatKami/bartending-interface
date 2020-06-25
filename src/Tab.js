@@ -13,6 +13,7 @@ function Tab(props) {
     <div 
       className={"System-window-tab " + (props.selected ? 'selected' : '')}
       onClick={onClick}
+      onMouseEnter={context.soundManager.playHoverSound}
     >
       {props.title}
     </div>  

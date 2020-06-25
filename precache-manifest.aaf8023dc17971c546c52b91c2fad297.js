@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9933e3c5305e8662fdbd116985825159",
+    "revision": "7571c6d2a085f3b9f0abf6f0b641a83a",
     "url": "/bartending-interface/index.html"
   },
   {
-    "revision": "17b55e2c8ebf2a9167e4",
+    "revision": "fbb003816051f03db310",
     "url": "/bartending-interface/static/css/main.3dd48873.chunk.css"
   },
   {
-    "revision": "a69ad233d3df2640e73e",
-    "url": "/bartending-interface/static/js/2.28d8f331.chunk.js"
+    "revision": "83713120eeb8f543de4b",
+    "url": "/bartending-interface/static/js/2.98e472bd.chunk.js"
   },
   {
     "revision": "ac3f8e58b5796b271331f2926a0e8b61",
-    "url": "/bartending-interface/static/js/2.28d8f331.chunk.js.LICENSE.txt"
+    "url": "/bartending-interface/static/js/2.98e472bd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "17b55e2c8ebf2a9167e4",
-    "url": "/bartending-interface/static/js/main.979f08d8.chunk.js"
+    "revision": "fbb003816051f03db310",
+    "url": "/bartending-interface/static/js/main.1ab41a9c.chunk.js"
   },
   {
     "revision": "756bc7a0edce78e98672",
@@ -28,8 +28,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bartending-interface/static/media/cyberpunkwaifus-webfont.d06a940a.woff"
   },
   {
+    "revision": "c9b51ad4912581005dc58ba2fc08d77a",
+    "url": "/bartending-interface/static/media/drinkselect.c9b51ad4.mp3"
+  },
+  {
     "revision": "fc2728cd716c0f863c6e0573feeac45f",
     "url": "/bartending-interface/static/media/hover.fc2728cd.mp3"
+  },
+  {
+    "revision": "4606d7e826feaa67008582ed477e5a3e",
+    "url": "/bartending-interface/static/media/optionselect.4606d7e8.mp3"
   },
   {
     "revision": "992311011656777ebdbb5af971887016",

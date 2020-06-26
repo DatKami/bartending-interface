@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f95325557e9e5d4202b775204376142b",
+    "revision": "e7264ccbc118008abeeab110c047f6b7",
     "url": "/bartending-interface/index.html"
   },
   {
-    "revision": "a21040c949376cdbf7c7",
-    "url": "/bartending-interface/static/css/main.c9775fc2.chunk.css"
+    "revision": "21993f5168358d4ef996",
+    "url": "/bartending-interface/static/css/main.dd788b4c.chunk.css"
   },
   {
     "revision": "7e0375d68ad77eb120a7",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bartending-interface/static/js/2.1ed68617.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a21040c949376cdbf7c7",
+    "revision": "21993f5168358d4ef996",
     "url": "/bartending-interface/static/js/main.51942d76.chunk.js"
   },
   {

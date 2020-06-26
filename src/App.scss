@@ -30,6 +30,10 @@ html {
   font-size: min(3.3195vw/$aspect-ratio, 3.3195vh);
 }
 
+.play {
+  animation-play-state: running !important;
+}
+
 .App {
   background-color: #000;
   display: flex;
@@ -75,6 +79,7 @@ html {
       margin: .375rem .5rem;
       animation: 1s popin 1;
       animation-timing-function: step-end;
+      animation-play-state: paused;
     
       & > div {
         position: absolute;
@@ -102,6 +107,8 @@ html {
             margin-right: (6rem/16);
             text-align: left;
           
+            cursor: pointer;
+
             &.selected, &:hover, &:active {
               background-color: #000;
               color: #FFF;
@@ -132,6 +139,8 @@ html {
                   padding: (17rem/16) (39rem/16) (10rem/16) (42rem/16);
                   color: #808080;
 
+                  cursor: pointer;
+
                   &.selected, &:hover, &:active {
                     color: #FFF;
                   }
@@ -155,6 +164,8 @@ html {
                   color: #808080;
                   padding: (16rem/16) (55rem/16) (11rem/16) (42rem/16);
                   
+                  cursor: pointer;
+
                   &.selected, &:hover, &:active {
                     color: #FFF;
                   }
@@ -212,6 +223,8 @@ html {
                   &.empty {
                     border-color: black;
                   }
+
+                  cursor: pointer;
 
                   &.selected, &:hover, &:active {
                     border-color: #FFBB31;
@@ -287,8 +300,11 @@ html {
               }
               .left, .right {
                 margin: .125rem 0;
+
                 &.active {
                   opacity: 1;
+                  cursor: pointer;
+                  
                   &:active {
                     margin-top: .25rem;
                     margin-bottom: 0;
@@ -328,6 +344,9 @@ html {
     }
 
     @keyframes lowframeratefadeout {
+      0% {
+        top: 0rem;
+      }
       3.333% {
         top: 0rem;
       }
@@ -423,12 +442,220 @@ html {
     .blinder {
       width: (820rem/16); // 646 + 16 from margin + 158 from sidebar
       height: 31.125rem; // 29.25 + .75 + .125 from margin
-      top: 30.125rem;
       position: absolute;
       background-color: black;
       animation: 1s lowframeratefadeout 1;
       animation-timing-function: step-end;
+      animation-play-state: paused; 
+
+      &.play {
+        top: 30.125rem;
+      }
     }
+
+    @keyframes startup {
+      0% {
+        visibility: visible;
+      }
+      80% {
+        visibility: hidden;
+      }
+    }
+
+    .startup {
+      width: (820rem/16);
+      height: 31.125rem;
+      position: absolute;
+      background-color: #264BFF;
+      visibility: hidden;
+      animation: 15s startup 1;
+      animation-timing-function: step-end;
+
+      .calicomp {
+        position: absolute;
+        left: (340rem/16); // 410 - 69
+        top: 9rem;
+        width: (69rem/16*2);
+        img {
+          width: 100%;
+        }
+      }
+      .calicomp-blinder { 
+        position: absolute;
+        width: (138rem/16);
+        height: 1rem;
+        left: (478rem/16);
+        top: 15.25rem;
+        background-color: #264BFF;
+
+        @keyframes blinder1 {
+          0% {
+            left: (340rem/16);
+          }
+          22.5% {
+            left: (374rem/16);
+          }
+          25% {
+            left: (390rem/16);
+          }
+          27.5% {
+            left: (424rem/16);
+          }
+          30% {
+            left: (452rem/16);
+          }
+          32.5% {
+            left: (478rem/16);
+          }
+        }
+
+        @keyframes blinder2 {
+          0% {
+            left: (340rem/16);
+          }
+          18.75% {
+            left: (340rem/16);
+          }
+          21.25% {
+            left: (374rem/16);
+          }
+          23.75% {
+            left: (390rem/16);
+          }
+          26.25% {
+            left: (424rem/16);
+          }
+          28.75% {
+            left: (452rem/16);
+          }
+          31.25% {
+            left: (478rem/16);
+          }
+          100% {
+            left: (478rem/16);
+          }
+        }
+
+        &.blinder1 {
+          opacity: 50%;
+          animation: 20s blinder1 1;
+          animation-timing-function: step-end;
+        }
+        &.blinder2 {
+          animation: 20s blinder2 1;
+          animation-timing-function: step-end;
+        }
+      }
+    }
+
+    .bootscreen {
+      .calicomp {
+        position: absolute;
+        left: (340rem/16); // 410 - 69
+        top: 9rem;
+        width: (69rem/16*2);
+        img {
+          width: 100%;
+        }
+      }
+        
+      .calicomp-blinder {
+        position: absolute;
+        width: (138rem/16);
+        height: 1rem;
+        left: (340rem/16);
+        top: 15.25rem;
+        background-color: black;
+      }
+
+      .pre-button {
+        position: absolute;
+        width: (126rem/16);
+        left: (342rem/16);
+
+        text-align: center;
+        font-family: 'Va-11 Hall-A 6px';
+        font-size: 1.251rem;
+        height: (30rem/16);
+        background-color: black;
+        margin-left:(4rem/16);
+        outline: (4rem/16) solid white;
+        outline-offset: (-2rem/16);
+        top: 15.625rem;
+
+        cursor: pointer;
+
+        &:hover, &:active {
+          outline-color: #FFBB31;
+          color: #FFBB31;
+        }
+
+        &.startup-button {
+          // top: 15.625rem;
+          left: (204rem/16);
+
+          &:hover ~ .startup-label {
+            visibility: visible !important;
+          }
+        }
+  
+        &.fast-boot-button {
+          // top: 18.125rem;
+
+          &:hover ~ .fast-boot-label {
+            visibility: visible !important;
+          }
+        }
+
+        &.scanlines-button {
+          // top: 20.625rem;
+          left: (480rem/16);
+
+          &:hover ~ .scanlines-label {
+            visibility: visible !important;
+          }
+        }
+      }
+
+      .hover-label {
+        position: absolute;
+        width: (820rem/16);
+        left: 0;
+  
+        text-align: center;
+        font-family: 'Va-11 Hall-A 6px';
+        font-size: 1.251rem;
+        height: (30rem/16);
+        // top: 22.625rem;
+        top: 18.625rem;
+        visibility: hidden;
+      }
+
+
+    }
+
+    .copyright {
+      position: absolute;
+      width: (820rem/16);
+      bottom: (64rem/16);
+      left: 0;
+
+      text-align: center;
+      font-family: 'CyberpunkWaifus';
+      font-size: (28rem/16);
+    }
+
+    .copyright-small {
+      position: absolute;
+      width: (820rem/16);
+      bottom: (36rem/16);
+      left: 0;
+
+      text-align: center;
+      font-family: 'Va-11 Hall-A 6px';
+      font-size: 1.251rem;
+    }
+
 
     .System-sidebar {
       width: (158rem/16);

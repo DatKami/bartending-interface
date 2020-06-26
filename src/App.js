@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import './scanlines.scss';
 import TabWindow from './TabWindow';
 import Tab from './Tab';
 import calicomp from './assets/calicomp.png';
@@ -134,7 +135,11 @@ class App extends React.Component {
       activeOptionsGroup: undefined,
       activeOption: undefined,
       activeBottledDrink: undefined,
-      startup: true
+      startup: true,
+      startupSequence: false,
+      startBlinder: false,
+      startupButton: true,
+      scanlines: false
     };
   }
 
@@ -208,9 +213,24 @@ class App extends React.Component {
     }
   }
 
+  setStartupSequence(startup) {
+    this.setState({
+      startupSequence: startup,
+      startupButton: false,
+      startBlinder: !startup
+    });
+    startup && SoundManager.playStartupSound();
+  }
+
+  toggleScanlines() {
+    this.setState({
+      scanlines: !this.state.scanlines
+    });
+  }
+
   render() {
     return (
-      <div className="App">
+      <div className={"App" + (this.state.scanlines ? " scanlines" : "")}>
         <AppContext.Provider value={{
           navigation: {
             setActiveOption: this.setActiveOption,
@@ -225,7 +245,7 @@ class App extends React.Component {
         }}>
           <div className="System">
             <div 
-              className="System-window-maintain-aspect"
+              className={"System-window-maintain-aspect" + (this.state.startBlinder ? " play" : "")}
               onAnimationEnd={SoundManager.playOpenSound}
             >
               <div className="System-window">
@@ -258,9 +278,77 @@ class App extends React.Component {
                 <div className="System-window-inner-decoration bottom"></div>
               </div>
             </div>
-            <div className="blinder">
-
+            
+            <div className={"blinder" + (this.state.startBlinder ? " play" : "")} >
             </div>
+
+            {this.state.startupSequence && 
+              <div 
+                className="startup"
+                onAnimationEnd={() => {
+                  this.setStartupSequence(false);
+                }}
+              >
+                <div className="calicomp">
+                  <img src={calicomp} alt={''}/>
+                </div>
+                <div className="calicomp-blinder blinder1"></div>
+                <div className="calicomp-blinder blinder2"></div>
+
+                <div className="copyright">
+                  Copyright (c) Keeree Joe Group. 206X.
+                </div>
+                <div className="copyright-small">
+                  CALICOMP and KJG are registered trademarks of Banjo Group.
+                </div>
+              </div>
+            }
+
+            {this.state.startupButton && 
+              <div className="bootscreen">
+                <div 
+                  className="calicomp"
+                >
+                  <img src={calicomp} alt={''}/>
+                </div>
+                <div className="calicomp-blinder"></div>
+                <div
+                  className="pre-button startup-button"
+                  onClick={() => this.setStartupSequence(true)}
+                >
+                  Start Up
+                </div>
+                <div 
+                  className="pre-button fast-boot-button"
+                  onClick={() => this.setStartupSequence(false)}
+                >
+                  Fast Boot
+                </div>
+                <div 
+                  className="pre-button scanlines-button"
+                  onClick={this.toggleScanlines.bind(this)}
+                >
+                  Scanlines
+                </div>
+                <div className="hover-label startup-label">
+                  Launches the start up animation. (15s duration)
+                </div>
+                <div className="hover-label fast-boot-label">
+                  Boots immediately into the bartending interface program.
+                </div>
+                <div className="hover-label scanlines-label">
+                  Toggles scanlines. (Might be bad)
+                </div>
+
+                <div className="copyright">
+                  Assets from or derivative of VA-11 Hall-A, Sukeban Games.
+                </div>
+                <div className="copyright-small">
+                  Programmed by github@datkami
+                </div>
+              </div>
+            }
+
             <div className="System-sidebar">
               <div className="System-sidebar-calicomp">
                 <img src={calicomp} alt={''}/>

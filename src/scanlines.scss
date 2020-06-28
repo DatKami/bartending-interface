@@ -1,4 +1,4 @@
-// https://codepen.io/meduzen/pen/zxbwRV
+// From https://codepen.io/meduzen/pen/zxbwRV
 
 /* LIST OF FURTHER IMPROVEMENTS */
 /*
@@ -50,8 +50,8 @@ keyframes :
     left: 0;
     z-index: 2147483648;
     background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.2) 51%);
-    background-size: 100% (4.1rem/16);
-    animation: scanlines 1s steps(60) infinite;
+    background-size: 100% (4.07rem/16);
+    animation: scanlines 1s steps(30) infinite;
   }
   
   /* ANIMATE UNIQUE SCANLINE */

@@ -344,7 +344,7 @@ class App extends React.Component {
                   Assets from or derivative of VA-11 Hall-A, Sukeban Games.
                 </div>
                 <div className="copyright-small">
-                  Programmed by github@datkami
+                  Programmed by github@datkami. Best on Chrome or Firefox.
                 </div>
               </div>
             }

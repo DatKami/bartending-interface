@@ -61,6 +61,7 @@ html {
     width: 51.25rem;
     height: 30.25rem;
     position: relative;
+    line-height: 1.625rem;
     
     @keyframes popin {
       0% {
@@ -120,6 +121,7 @@ html {
           background-color: #000;
           flex-grow: 1;
           text-align: left;
+          height: 26.25rem;
     
           .System-window-inner-sort {
             padding-top: (47rem/16);

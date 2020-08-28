@@ -24,10 +24,23 @@ body {
   overflow-y: hidden;
 }
 
-$aspect-ratio: 820/482;
+// these are the width and height of the "virtual canvas"
+$width: 820;
+$height: 482;
 
+$aspect-ratio: $width / $height;
+
+// what is this number supposed to represent?
+// the normal 1rem is equivalent to font-size, usually 16px. Say now we want 1rem to represent 16 virtual pixels (vpx):
+// a vpx is equal to 100vh/$height (for a canvas 400vpx high, this is .25vh)
+// then the 1rem is equal to 16x the vpx (or 4vh)
+$heightrem: 100vh / $height * 16;
+$widthrem: 100vw / $width * 16;
+
+// guarantee we can maintain a left-right letterbox
+// top-bottom letterbox will start breaking if height > width
 html {
-  font-size: min(3.3195vw/$aspect-ratio, 3.3195vh);
+  font-size: min($widthrem, $heightrem);
 }
 
 .play {
